@@ -1,0 +1,48 @@
+ // Import Theming.scss from node/modules
+@import "../node_modules/@angular/material/theming";
+
+// Import mat-core for all conversion functions
+
+@include mat-core();
+
+ // Define theme primary, accent, and warning colors
+ // Color Variables are taken from theming.scss or material colors
+
+$rovotics-theme-primary: mat-palette($mat-cyan);
+$rovotics-theme-accent: mat-palette($mat-cyan, 700, 800, 900);
+$rovotics-theme-warn: mat-palette($mat-red);
+
+// Import Theme into Angular Material
+$rovotics-theme: mat-dark-theme($rovotics-theme-primary, $rovotics-theme-accent, $rovotics-theme-warn);
+
+// Success/Warn Theme
+$success-alternate-theme: mat-palette($mat-green, 600);
+$warn-alternate-theme: mat-palette($mat-red);
+$alternate-theme: mat-dark-theme($rovotics-theme-primary, $success-alternate-theme, $warn-alternate-theme);
+
+// Parent class .success-warn-theme, you use this style
+ .success-warn-theme {
+   @include angular-material-theme($alternate-theme);
+ }
+
+ // Mixin for Toggle Buttons
+ @mixin mix-app-theme($rovotics-theme) {
+   $primary: map-get($rovotics-theme, primary);
+   $accent: map-get($rovotics-theme, accent);
+
+   .mat-button-toggle {
+     background-color: mat-color($accent);
+     color: mat-color($accent, default-contrast);
+   }
+
+   .mat-button-toggle-checked {
+     background-color: mat-color($primary);
+     color: mat-color($primary, default-contrast);
+   }
+ }
+
+ // Merges this style with default theme
+ @include angular-material-theme($rovotics-theme);
+
+ // Merges mixin with theme
+ @include mix-app-theme($rovotics-theme);
