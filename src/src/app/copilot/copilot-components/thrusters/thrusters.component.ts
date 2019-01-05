@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as $ from 'jquery';
 import 'jquery-knob';
-import { HorizontalDriveService } from '../../../services/subscribers/horizontal-drive.service';
-import { HorizontalDriveModel } from '../../../services/data-models/horizontal-drive.model';
-import { VerticalDriveService } from '../../../services/subscribers/vertical-drive.service';
-import { VerticalDriveModel } from '../../../services/data-models/vertical-drive.model';
+import {HorizontalDriveService} from '../../../services/subscribers/horizontal-drive.service';
+import {HorizontalDriveModel} from '../../../services/data-models/horizontal-drive.model';
+import {VerticalDriveService} from '../../../services/subscribers/vertical-drive.service';
+import {VerticalDriveModel} from '../../../services/data-models/vertical-drive.model';
 
 @Component({
-  selector: 'app-thrusters',
-  templateUrl: './thrusters.component.html',
-  styleUrls: ['./thrusters.component.css']
+    selector: 'app-thrusters',
+    templateUrl: './thrusters.component.html',
+    styleUrls: ['./thrusters.component.css']
 })
 export class ThrustersComponent implements OnInit {
     name = 'ROV Thrusters';
@@ -21,7 +21,8 @@ export class ThrustersComponent implements OnInit {
     thruster5: number;
     thruster6: number;
 
-    constructor(private horizontaldriveService: HorizontalDriveService, private verticaldriveService: VerticalDriveService) {}
+    constructor(private horizontaldriveService: HorizontalDriveService, private verticaldriveService: VerticalDriveService) {
+    }
 
     thrustToPercent(msg) {
         msg = msg / 10;
@@ -58,7 +59,6 @@ export class ThrustersComponent implements OnInit {
             $("#thruster6").val(this.thruster6).trigger('change');
         });
     }
-
 
 
 }
