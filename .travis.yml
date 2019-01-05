@@ -1,11 +1,13 @@
 language: node_js
 node_js:
-  - "9"
+  - "11"
 dist: xenial
 sudo: required
 
 addons:
-  chrome: stable
+  apt:
+    packages:
+      - google-chrome-stable
 
 branches:
   only:
@@ -19,7 +21,7 @@ before_script:
   
 script:
 - ng lint
-- ng test --watch false -cc
+# - ng test --watch false -cc
 - npm run e2e
 - ng build --prod --base-href https://JHSRobo.github.io/copilot-page/
 
