@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "9"
+dist: xenial
+sudo: required
+
+branches:
+  only:
+  - master
+  - release
+  
+before_script:
+  - npm install -g @angular/cli
+  
+script:
+- cd src
+- ng lint
+- ng test --watch false -cc
+- npm run e2e
+- ng build --prod --base-href https://JHSRobo.github.io/copilot-page/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/copilot-page
+  on:
+    branch: master
