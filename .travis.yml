@@ -11,9 +11,10 @@ branches:
   
 before_script:
   - npm install -g @angular/cli
+  - cd src
+  - npm i
   
 script:
-- cd src
 - ng lint
 - ng test --watch false -cc
 - npm run e2e
