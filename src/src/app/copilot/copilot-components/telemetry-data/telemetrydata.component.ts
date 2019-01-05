@@ -16,6 +16,8 @@ export class TelemetrydataComponent implements OnInit {
     rovTemperature: number; // ROV temperature in Celsius
     rovPressure: number; // ROV Altitude in atm (can change to pascal)
     rovHumidity: number; // ROV humidity in percent?
+    rovVoltage: number; // ROV Voltage in Volts
+    rovCurrent: number; // ROV Current in Amps
     multiplier: number;
 
     constructor(

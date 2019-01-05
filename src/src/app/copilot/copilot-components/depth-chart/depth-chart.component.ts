@@ -10,6 +10,7 @@ import {Ms5837Data} from '../../../services/data-models/ms5837.model';
 })
 
 export class DepthChartComponent implements AfterViewInit {
+    name: 'Depth Chart';
     rovDepth: number; // ROV Depth in Meters
     multiplier: number;
 
