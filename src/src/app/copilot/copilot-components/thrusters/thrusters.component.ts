@@ -30,7 +30,7 @@ export class ThrustersComponent implements OnInit {
 
     ngOnInit() {
         $(".dial").knob({
-            'min': 0,
+            'min': -100,
             'max': 100,
             'width': '100%',
             'height': '100%',
