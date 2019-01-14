@@ -1,5 +1,7 @@
 # Copilot Page
 
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?token=MLUeawcs2TVnqzx4kkpM&branch=master)](https://travis-ci.com/JHSRobo/copilot-page)
+
 ## Overview Description
 
 This package includes the copilot webpage. The webpage is an angular page, more information about the page itself is in readme in the `src` file.

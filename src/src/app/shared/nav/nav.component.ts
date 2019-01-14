@@ -1,22 +1,41 @@
 import {AfterContentChecked, AfterViewChecked, Component, OnInit} from '@angular/core';
 import {fromEvent} from 'rxjs';
-import { MatSnackBar } from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 import {ThrustersStatusService} from '../../services/publishers/thrusters-status.service';
-import { InversionService } from '../../services/publishers/inversion.service';
+import {InversionService} from '../../services/publishers/inversion.service';
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+    selector: 'app-nav',
+    templateUrl: './nav.component.html',
+    styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
 
     icons = [
-      {src: '../../../assets/House(Unselected).svg', clickedsrc: '../../../assets/House(Selected).svg', selected: false, link: '/copilot'},
-      {src: '../../../assets/Bolt(Unselected).svg', clickedsrc: '../../../assets/Bolt(Selected).svg', selected: false, link: '/drq'},
-      {src: '../../../assets/CircuitBoard(Unselected).svg', clickedsrc: '../../../assets/CircuitBoard(Selected).svg', selected: false, link: '/sensor-telemetry'},
-      {src: '../../../assets/Settings(Unselected).svg', clickedsrc: '../../../assets/Settings(Selected).svg', selected: false}
+        {
+            src: '../../../assets/House(Unselected).svg',
+            clickedsrc: '../../../assets/House(Selected).svg',
+            selected: false,
+            link: '/copilot'
+        },
+        {
+            src: '../../../assets/Bolt(Unselected).svg',
+            clickedsrc: '../../../assets/Bolt(Selected).svg',
+            selected: false,
+            link: '/drq'
+        },
+        {
+            src: '../../../assets/CircuitBoard(Unselected).svg',
+            clickedsrc: '../../../assets/CircuitBoard(Selected).svg',
+            selected: false,
+            link: '/sensor-telemetry'
+        },
+        {
+            src: '../../../assets/Settings(Unselected).svg',
+            clickedsrc: '../../../assets/Settings(Selected).svg',
+            selected: false
+        }
     ];
 
     thrusterStatus = false;
@@ -28,10 +47,11 @@ export class NavComponent implements OnInit {
 
 
     constructor(
-      private thrusterStatusService: ThrustersStatusService,
-      public thrusterNotification: MatSnackBar,
-      private inversionService: InversionService,
-      public inversionNotification: MatSnackBar) {}
+        private thrusterStatusService: ThrustersStatusService,
+        public thrusterNotification: MatSnackBar,
+        private inversionService: InversionService,
+        public inversionNotification: MatSnackBar) {
+    }
 
     thrustersToggle() { // Toggles UI and code, doesn't publish to topic
         // Changes thruster status
@@ -92,7 +112,7 @@ export class NavComponent implements OnInit {
     // Resets icons except for selected icon
     selected(icon) {
         for (const icon of this.icons) {
-          icon.selected = false;
+            icon.selected = false;
         }
         icon.selected = true;
     }
@@ -105,7 +125,8 @@ export class NavComponent implements OnInit {
         this.thrusterStatusService.getData().subscribe((msg) => {
             try {
                 (this.thrusterStatus !== msg.data) ? this.thrustersToggle() : null; // Toggles thrusters if topics dont match local and real
-            } catch (error) { }
+            } catch (error) {
+            }
         });
 
         this.inversionService.initialize();
@@ -114,7 +135,8 @@ export class NavComponent implements OnInit {
             try {
                 // Changes inversion if it's not the same and it exists in the message (avoids bug)
                 (this.inversion !== msg.data && msg !== undefined) ? this.inversionChange(msg.data) : null;
-            } catch (error) { }
+            } catch (error) {
+            }
         });
     }
 

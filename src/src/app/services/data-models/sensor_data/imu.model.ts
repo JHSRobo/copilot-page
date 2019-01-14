@@ -1,4 +1,3 @@
-
 export class ImuModel {
     header: {
         frame_id: string;

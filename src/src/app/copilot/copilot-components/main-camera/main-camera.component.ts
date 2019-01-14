@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { CameraSelectService } from '../../../services/publishers/camera-select.service';
-import { fromEvent } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {CameraSelectService} from '../../../services/publishers/camera-select.service';
+import {fromEvent} from 'rxjs';
 
 @Component({
-  selector: 'app-main-camera-module',
-  templateUrl: './main-camera.component.html',
-  styleUrls: ['./main-camera.component.css']
+    selector: 'app-main-camera-module',
+    templateUrl: './main-camera.component.html',
+    styleUrls: ['./main-camera.component.css']
 })
 export class MainCameraComponent implements OnInit {
-
-    // Initializes CameraSelectService
-    constructor(public cameraSelectService: CameraSelectService) {}
 
     // Declares name for window, arrays for cameras (should probably change to objects)
     name = 'Main Camera';
@@ -23,6 +20,10 @@ export class MainCameraComponent implements OnInit {
     camera7 = false;
     camera8 = false;
     camera9 = false;
+
+    // Initializes CameraSelectService
+    constructor(public cameraSelectService: CameraSelectService) {
+    }
 
     keyPress(event) {
         if (event.key == 1) {
@@ -43,7 +44,8 @@ export class MainCameraComponent implements OnInit {
             this.cameraSwitch(8);
         } else if (event.key == 9) {
             this.cameraSwitch(9);
-        } else { }
+        } else {
+        }
     }
 
     // Onclick passes event that contains ton of information
@@ -157,7 +159,7 @@ export class MainCameraComponent implements OnInit {
         // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
         // Listens for camera publishers from rqt copilot page
-        this.cameraSelectService.getData().subscribe( (msg) => {
+        this.cameraSelectService.getData().subscribe((msg) => {
             this.cameraSwitch(msg.data);
         });
     }

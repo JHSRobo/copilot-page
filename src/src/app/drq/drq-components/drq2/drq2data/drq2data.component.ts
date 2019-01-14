@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-drq2data',
-  templateUrl: './drq2data.component.html',
-  styleUrls: ['./drq2data.component.css']
+    selector: 'app-drq2data',
+    templateUrl: './drq2data.component.html',
+    styleUrls: ['./drq2data.component.css']
 })
 export class Drq2dataComponent {
 

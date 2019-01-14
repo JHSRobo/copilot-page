@@ -1,141 +1,163 @@
 mat-sidenav-content {
-  margin-left: 87px !important;
+    margin-left: 87px !important;
 }
 
 .sidenav-container {
-  height: 100%;
+    height: 100%;
 }
 
 
 .thrusterButton {
-  font-size: 30pt;
-  background-color: rgba(0, 0, 0, 0);
+    font-size: 30pt;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .sidenav {
-  width: 200px;
+    width: 200px;
 }
 
 .mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
+    position: sticky;
+    top: 0;
 }
 
 .mat-drawer {
-  /* Put Colors here*/
-  background-color: #313349 !important;
+    /* Put Colors here*/
+    background-color: #313349 !important;
 }
 
 .centeringdiv {
-  height: 36%;
+    height: 36%;
 }
 
 
 .red {
-  background-color: #af3735 !important;
+    background-color: #af3735 !important;
 }
 
 .green {
-  background-color: #4CAF50 !important;
+    background-color: #4CAF50 !important;
 }
 
 .shadow {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(4, 4, 1, 0.5);
-  position: absolute;
-  z-index: 1000;
-  top: 0px;
-  left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 4, 1, 0.5);
+    position: absolute;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
 }
 
 .dialog {
-  width: 18%;
-  height: 18%;
-  background-color: #313349 !important;
-  position: absolute;
-  z-index: 1000;
-  border-radius: 20px;
-  top: 445px;
-  left: 825px;
+    width: 18%;
+    height: 18%;
+    background-color: #313349 !important;
+    position: absolute;
+    z-index: 1000;
+    border-radius: 20px;
+    top: 445px;
+    left: 825px;
 }
 
 .hidden {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .visible {
-  visibility: visible;
+    visibility: visible;
 }
 
 .title {
-  margin-top: 19px;
-  margin-left: 29px;
-  color: white;
+    margin-top: 19px;
+    margin-left: 29px;
+    color: white;
 }
 
 .content {
-  color: white;
-  margin-top: 31px;
-  margin-left: 31px;
+    color: white;
+    margin-top: 31px;
+    margin-left: 31px;
 }
 
 .buttons {
-  margin-top: 33px;
-  margin-left: 23px;
+    margin-top: 33px;
+    margin-left: 23px;
 }
 
-.party{
-  top: 1034px;
-  left: 1829px;
-  height: 40px;
-  width: 40px !important;
-  position: absolute;
-  z-index: 999;
+.party {
+    top: 1034px;
+    left: 1829px;
+    height: 40px;
+    width: 40px !important;
+    position: absolute;
+    z-index: 999;
 }
 
 .partyConfirm {
-  animation:colorAni 5s;
-  -moz-animation:colorAni 5s infinite; /* Firefox */
-  -webkit-animation:colorAni 5s infinite; /* Safari and Chrome */
+    animation: colorAni 5s;
+    -moz-animation: colorAni 5s infinite; /* Firefox */
+    -webkit-animation: colorAni 5s infinite; /* Safari and Chrome */
 }
 
 .partyMode {
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
-  animation:colorAni 2s;
-  -moz-animation:colorAni 2s infinite; /* Firefox */
-  -webkit-animation:colorAni 2s infinite; /* Safari and Chrome */
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    animation: colorAni 2s;
+    -moz-animation: colorAni 2s infinite; /* Firefox */
+    -webkit-animation: colorAni 2s infinite; /* Safari and Chrome */
 }
 
 .partyStop {
-  top: 344px;
-  left: 437px;
-  animation:colorAni 5s;
-  -moz-animation:colorAni 5s infinite; /* Firefox */
-  -webkit-animation:colorAni 5s infinite; /* Safari and Chrome */
+    top: 344px;
+    left: 437px;
+    animation: colorAni 5s;
+    -moz-animation: colorAni 5s infinite; /* Firefox */
+    -webkit-animation: colorAni 5s infinite; /* Safari and Chrome */
 }
 
-@-moz-keyframes colorAni /* Firefox */ {
-  0% {background:green;}
-  25% {background:yellow;}
-  50% {background:red;}
-  75% {background:blue;}
-  100% {background:green;}
+@-moz-keyframes colorAni /* Firefox */
+{
+    0% {
+        background: green;
+    }
+    25% {
+        background: yellow;
+    }
+    50% {
+        background: red;
+    }
+    75% {
+        background: blue;
+    }
+    100% {
+        background: green;
+    }
 }
 
-@-webkit-keyframes colorAni /* Safari and Chrome */ {
-  0% {background:green;}
-  25% {background:yellow;}
-  50% {background:red;}
-  75% {background:blue;}
-  100% {background:green;}
+@-webkit-keyframes colorAni /* Safari and Chrome */
+{
+    0% {
+        background: green;
+    }
+    25% {
+        background: yellow;
+    }
+    50% {
+        background: red;
+    }
+    75% {
+        background: blue;
+    }
+    100% {
+        background: green;
+    }
 }
 
-.gif{
-  margin-top: 377px;
-  margin-left: 580px;
-  width: 40%;
+.gif {
+    margin-top: 377px;
+    margin-left: 580px;
+    width: 40%;
 }
