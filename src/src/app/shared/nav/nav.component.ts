@@ -4,6 +4,7 @@ import {MatSnackBar} from '@angular/material';
 
 import {ThrustersStatusService} from '../../services/publishers/thrusters-status.service';
 import {InversionService} from '../../services/publishers/inversion.service';
+import { RosService } from "../../services/subscribers/ros.service";
 
 @Component({
     selector: 'app-nav',
@@ -50,7 +51,9 @@ export class NavComponent implements OnInit {
         private thrusterStatusService: ThrustersStatusService,
         public thrusterNotification: MatSnackBar,
         private inversionService: InversionService,
-        public inversionNotification: MatSnackBar) {
+        private rosService: RosService,
+        public inversionNotification: MatSnackBar,
+        public rosNotification: MatSnackBar) {
     }
 
     thrustersToggle() { // Toggles UI and code, doesn't publish to topic
@@ -61,6 +64,13 @@ export class NavComponent implements OnInit {
             duration: 3000,
             panelClass: ['snackbar']
         });
+    }
+
+    rosServiceToggle(msg) {
+        this.rosNotification.open(msg ? 'ROS Connected' : 'ROS Disconnected', 'Exit', {
+            duration: 10000,
+            panelClass: ['snackbar']
+        })
     }
 
     inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
@@ -131,13 +141,19 @@ export class NavComponent implements OnInit {
 
         this.inversionService.initialize();
         this.inversionService.getData().subscribe((msg) => {
-            console.log(msg + " Get Data");
             try {
                 // Changes inversion if it's not the same and it exists in the message (avoids bug)
                 (this.inversion !== msg.data && msg !== undefined) ? this.inversionChange(msg.data) : null;
             } catch (error) {
             }
         });
+
+        this.rosService.initialize();
+        this.rosService.connectedStatus().subscribe((msg) => {
+            try {
+                this.rosServiceToggle(msg);
+            } catch (error) { }
+        })
     }
 
     // -------------------------

@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Observable, BehaviorSubject} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +13,8 @@ export class RosService {
         url: 'ws://master:9090'
     });
 
+    connected: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
     initialize() {
         // Listens for error from ROS and logs it
         this.ros.on('error', function (error) {
@@ -20,11 +23,16 @@ export class RosService {
 
         // Find out exactly when we made a connection.
         this.ros.on('connection', function () {
-            console.log('Connection made!');
+            this.this.connected = true;
         });
         // Logs when connection is closed
         this.ros.on('close', function () {
-            console.log('Connection closed.');
+            this.this.connected = false;
         });
     }
+
+     connectedStatus(): Observable<boolean> {
+        return this.connected.asObservable();
+    }
 }
+
