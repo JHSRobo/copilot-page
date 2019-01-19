@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Drq1Service } from '../../../../services/subscribers/drq-1.service';
+import { DrqModel } from "../../../../services/data-models/drq.model";
 
 @Component({
     selector: 'app-drq1data',
@@ -25,7 +26,7 @@ export class Drq1dataComponent {
     ngOnInit() {
         // Initialize Humidity Service
         this.drq1.initialize();
-        this.drq1.getData().subscribe((msg: DRQ1250) => {
+        this.drq1.getData().subscribe((msg: DrqModel) => {
             try {
                 this.drqTemp = this.round(msg.tempurature, 1);
                 this.vIn = this.round(msg.Vin, 1);
