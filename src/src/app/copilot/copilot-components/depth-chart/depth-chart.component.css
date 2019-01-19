@@ -1,0 +1,12 @@
+.chart > canvas {
+    width: 95%;
+    height: 95%;
+}
+
+.text {
+    font-size: 3em;
+}
+
+.spacer {
+    height: 10%;
+}
