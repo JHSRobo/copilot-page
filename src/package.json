@@ -35,6 +35,7 @@
     "material-design-icons": "^3.0.1",
     "roslibjs-client": "^0.2.1",
     "rxjs": "^6.0.0",
+    "snapsvg": "^0.5.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
