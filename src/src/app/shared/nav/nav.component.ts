@@ -71,6 +71,7 @@ export class NavComponent implements OnInit {
     }
 
     rosServiceToggle(msg) {
+      // TODO Same weird ExpressionChangedAfterItHasBeenChecked error, not super important
       try{
         this.rosNotification.open(msg ? 'ROS Connected' : 'ROS Disconnected', 'Exit', {
           duration: 20000,
@@ -86,7 +87,7 @@ export class NavComponent implements OnInit {
         // Change inversion number
         this.inversion = number;
         // Opens snackbar that displays inversion number
-        // TODO Figure out way to do this better? It gives error that ExfpressionChangedAfterItHasBeenChecked if  a real value was passed through the snackbar
+        // TODO Better way? It gives error that ExfpressionChangedAfterItHasBeenChecked if  a real value was passed through
         try {
             this.inversionNotification.open('Inversion mode changed to ' + this.inversion, 'Exit', {
                 duration: 3000,
