@@ -60,21 +60,29 @@ export class NavComponent implements OnInit {
         // Changes thruster status
         this.thrusterStatus = !this.thrusterStatus;
         // Opens snackbar (that's the real name) that displays thruster status
+      try {
         this.thrusterNotification.open(this.thrusterStatus ? 'Thrusters Enabled' : 'Thrusters Disabled', 'Exit', {
-            duration: 3000,
-            panelClass: ['snackbar']
+          duration: 3000,
+          panelClass: ['snackbar']
         });
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     rosServiceToggle(msg) {
+      try{
         this.rosNotification.open(msg ? 'ROS Connected' : 'ROS Disconnected', 'Exit', {
-            duration: 10000,
-            panelClass: ['snackbar']
-        })
+          duration: 20000,
+          panelClass: ['snackbar']
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
-        console.log(number + " Inversion Change Function");
+        console.log(number + ' Inversion Change Function');
         // Change inversion number
         this.inversion = number;
         // Opens snackbar that displays inversion number
@@ -121,8 +129,8 @@ export class NavComponent implements OnInit {
 
     // Resets icons except for selected icon
     selected(icon) {
-        for (const icon of this.icons) {
-            icon.selected = false;
+        for (const iconAll of this.icons) {
+            iconAll.selected = false;
         }
         icon.selected = true;
     }
@@ -153,7 +161,7 @@ export class NavComponent implements OnInit {
             try {
                 this.rosServiceToggle(msg);
             } catch (error) { }
-        })
+        });
     }
 
     // -------------------------

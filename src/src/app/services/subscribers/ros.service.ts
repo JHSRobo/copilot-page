@@ -4,6 +4,7 @@ import {Observable, BehaviorSubject} from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
+
 export class RosService {
 
     // Creates object with the ROS library
@@ -13,7 +14,7 @@ export class RosService {
         url: 'ws://master:9090'
     });
 
-    connected: BehaviorSubject<boolean> = new BehaviorSubject(false);
+    public connected: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
     initialize() {
         // Listens for error from ROS and logs it
@@ -23,11 +24,11 @@ export class RosService {
 
         // Find out exactly when we made a connection.
         this.ros.on('connection', function () {
-            this.this.connected = true;
+          this.connected = true;
         });
         // Logs when connection is closed
         this.ros.on('close', function () {
-            this.this.connected = false;
+          this.connected = false;
         });
     }
 
