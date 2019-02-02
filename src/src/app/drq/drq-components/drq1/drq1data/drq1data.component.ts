@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Drq1Service } from '../../../../services/subscribers/drq-1.service';
-import { DrqModel } from "../../../../services/data-models/drq.model";
+import { DrqModel } from '../../../../services/data-models/drq.model';
 
 @Component({
     selector: 'app-drq1data',
     templateUrl: './drq1data.component.html',
     styleUrls: ['./drq1data.component.css']
 })
-export class Drq1dataComponent {
+export class Drq1dataComponent implements OnInit {
 
     name = 'DRQ1250 1 Data';
 
@@ -22,7 +22,7 @@ export class Drq1dataComponent {
         return Math.round(value * this.multiplier) / this.multiplier;
     }
 
-    constructor( private drq1: Drq1Service ) {};
+    constructor( private drq1: Drq1Service ) {}
     ngOnInit() {
         // Initialize Humidity Service
         this.drq1.initialize();

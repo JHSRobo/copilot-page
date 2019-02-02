@@ -7,7 +7,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class ThrustersStatusService {
 
   thrusterStatusTopic;
-  
+
 thrusterStatusState: BehaviorSubject<any> = new BehaviorSubject(null);
 
   // Creates object with the ROS Library

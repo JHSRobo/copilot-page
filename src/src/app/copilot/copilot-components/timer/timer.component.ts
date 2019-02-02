@@ -27,7 +27,7 @@ export class TimerComponent {
       // tempSeconds = Math.floor(delta / 1000).toString(); // in seconds
       // ------
       if (tempSeconds >= 60) {
-          tempSeconds = 0
+          tempSeconds = 0;
           tempMinutes = 1;
       }
       // If more than 9 seconds, print number, if not, add a 0 in front

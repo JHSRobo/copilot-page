@@ -3,13 +3,13 @@ import { SensitivityService } from '../../../services/publishers/sensitivity.ser
 import { SensitivityModel } from '../../../services/data-models/sensitivity.model';
 
 @Component({
-  selector: 'app-thruster-sensativity',
+  selector: 'app-thruster-sensitivity',
   templateUrl: './thruster-sensitivity.component.html',
   styleUrls: ['./thruster-sensitivity.component.css']
 })
 export class ThrusterSensitivityComponent implements OnInit {
 
-  constructor(private sensitivityService: SensitivityService) {};
+  constructor(private sensitivityService: SensitivityService) {}
 
   max = 1.0;
   min = 0.0;
@@ -28,7 +28,7 @@ export class ThrusterSensitivityComponent implements OnInit {
   ngOnInit() {
     this.sensitivityService.initialize();
     this.sensitivityService.getData().subscribe((msg: SensitivityModel) => {
-      msg ?  this.sensitivity = msg : null;
+      if (msg) { this.sensitivity = msg; }
     });
   }
 }

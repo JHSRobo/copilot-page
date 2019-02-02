@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable} from 'rxjs';
 import { GenericModel } from '../data-models/generic.model';
 
 import '../../../assets/roslib';
@@ -29,8 +29,8 @@ export class InversionService {
     });
 
     this.inversionTopic.subscribe((msg: GenericModel) => { // Subscribe to inversiont topic
-    	// console.log(msg + " this.inversionTopic.subscribe");
-			(msg !== undefined) ? this.inversionState.next(msg) : null; // Add value to behavior subject
+        // console.log(msg + " this.inversionTopic.subscribe");
+        if (msg !== undefined) { this.inversionState.next(msg); } // Add value to behavior subject
     });
   }
 
