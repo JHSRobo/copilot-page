@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { RpiTelemetryService } from "../../../services/subscribers/rpi-telemetry.service";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-tubedata',

@@ -64,4 +64,4 @@ typings/
 .idea/
 
 # Build files
-.dist/
+dist/
