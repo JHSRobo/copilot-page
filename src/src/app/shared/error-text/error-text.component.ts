@@ -7,6 +7,6 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ErrorTextComponent {
   @Input('name') name: string;
-  @Input('align') alignment: string;
+  @Input('align') align: string;
   @Input('unit') unit: string;
 }

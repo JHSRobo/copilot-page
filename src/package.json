@@ -1,6 +1,6 @@
 {
   "name": "Copilot",
-  "version": "0.0.0",
+  "version": "1.1.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -36,6 +36,8 @@
     "node-sass": "^4.11.0",
     "roslibjs-client": "^0.2.1",
     "rxjs": "^6.0.0",
+    "snap": "^1.1.0",
+    "snapsvg": "^0.5.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -6,9 +6,8 @@
  * Copyright (c) 2013 hij1nx
  * Licensed under the MIT license.
  */
-;!function(undefined) {
-
-  var isArray = Array.isArray ? Array.isArray : function _isArray(obj) {
+        !function (undefined) {
+            var isArray = Array.isArray ? Array.isArray : function _isArray(obj) {
     return Object.prototype.toString.call(obj) === "[object Array]";
   };
   var defaultMaxListeners = 10;
@@ -752,7 +751,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		var test1 = String('abc');  // eslint-disable-line no-new-wrappers
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;

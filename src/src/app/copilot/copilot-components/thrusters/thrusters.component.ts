@@ -29,7 +29,7 @@ export class ThrustersComponent implements OnInit {
     }
 
     ngOnInit() {
-        $(".dial").knob({
+        $('.dial').knob({
             'min': -100,
             'max': 100,
             'width': '100%',
@@ -45,17 +45,17 @@ export class ThrustersComponent implements OnInit {
             this.thruster2 = this.thrustToPercent(msg.t2);
             this.thruster3 = this.thrustToPercent(msg.t3);
             this.thruster4 = this.thrustToPercent(msg.t4);
-            $("#thruster1").val(this.thruster1).trigger('change');
-            $("#thruster2").val(this.thruster2).trigger('change');
-            $("#thruster3").val(this.thruster3).trigger('change');
-            $("#thruster4").val(this.thruster4).trigger('change');
+            $('#thruster1').val(this.thruster1).trigger('change');
+            $('#thruster2').val(this.thruster2).trigger('change');
+            $('#thruster3').val(this.thruster3).trigger('change');
+            $('#thruster4').val(this.thruster4).trigger('change');
         });
         this.verticaldriveService.initialize();
         this.verticaldriveService.getData().subscribe((msg: VerticalDriveModel) => {
             this.thruster5 = this.thrustToPercent(msg.t1);
             this.thruster6 = this.thrustToPercent(msg.t2);
-            $("#thruster5").val(this.thruster5).trigger('change');
-            $("#thruster6").val(this.thruster6).trigger('change');
+            $('#thruster5').val(this.thruster5).trigger('change');
+            $('#thruster6').val(this.thruster6).trigger('change');
         });
     }
 

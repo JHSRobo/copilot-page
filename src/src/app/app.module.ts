@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RosService} from './services/subscribers/ros.service';
 
 
 
@@ -37,7 +38,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    RosService
+  ],
   exports: [
     MaterialModule,
   ],

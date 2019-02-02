@@ -12,10 +12,10 @@ import {VerticalDriveService} from './services/subscribers/vertical-drive.servic
 export class AppComponent implements OnInit {
     // The constructor takes the roslibservice import statement and assigns it
   // Done before onInit
-  constructor(private RosService: RosService, private horizontal: HorizontalDriveService, private vertical: VerticalDriveService) { }
+  constructor(private _RosService: RosService, private horizontal: HorizontalDriveService, private vertical: VerticalDriveService) { }
   // OnInit initializes the Roslib service, and gets data to test connection
   ngOnInit() {
-    this.RosService.initialize();
+    this._RosService.initialize();
     this.horizontal.initialize();
     this.vertical.initialize();
   }

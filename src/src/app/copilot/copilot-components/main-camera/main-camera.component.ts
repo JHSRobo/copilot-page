@@ -25,30 +25,30 @@ export class MainCameraComponent implements OnInit {
     camera9 = false;
 
     keyPress(event) {
-        if (event.key == 1) {
+        if (event.key === 1) {
             this.cameraSwitch(1);
-        } else if (event.key == 2) {
+        } else if (event.key === 2) {
             this.cameraSwitch(2);
-        } else if (event.key == 3) {
+        } else if (event.key === 3) {
             this.cameraSwitch(3);
-        } else if (event.key == 4) {
+        } else if (event.key === 4) {
             this.cameraSwitch(4);
-        } else if (event.key == 5) {
+        } else if (event.key === 5) {
             this.cameraSwitch(5);
-        } else if (event.key == 6) {
+        } else if (event.key === 6) {
             this.cameraSwitch(6);
-        } else if (event.key == 7) {
+        } else if (event.key === 7) {
             this.cameraSwitch(7);
-        } else if (event.key == 8) {
+        } else if (event.key === 8) {
             this.cameraSwitch(8);
-        } else if (event.key == 9) {
+        } else if (event.key === 9) {
             this.cameraSwitch(9);
         } else { }
     }
 
     // Onclick passes event that contains ton of information
     cameraSwitch(value) {
-        if (value == 1) {
+        if (value === 1) {
             this.camera1 = true;
             this.camera2 = false;
             this.camera3 = false;
@@ -59,7 +59,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(1);
-        } else if (value == 2) {
+        } else if (value === 2) {
             this.camera1 = false;
             this.camera2 = true;
             this.camera3 = false;
@@ -70,7 +70,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(2);
-        } else if (value == 3) {
+        } else if (value === 3) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = true;
@@ -81,7 +81,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(3);
-        } else if (value == 4) {
+        } else if (value === 4) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = false;
@@ -92,7 +92,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(4);
-        } else if (value == 5) {
+        } else if (value === 5) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = false;
@@ -103,7 +103,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(5);
-        } else if (value == 6) {
+        } else if (value === 6) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = false;
@@ -114,7 +114,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(6);
-        } else if (value == 7) {
+        } else if (value === 7) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = false;
@@ -125,7 +125,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = false;
             this.camera9 = false;
             this.cameraSelectService.publish(7);
-        } else if (value == 8) {
+        } else if (value === 8) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = false;
@@ -136,7 +136,7 @@ export class MainCameraComponent implements OnInit {
             this.camera8 = true;
             this.camera9 = false;
             this.cameraSelectService.publish(8);
-        } else if (value == 9) {
+        } else if (value === 9) {
             this.camera1 = false;
             this.camera2 = false;
             this.camera3 = false;

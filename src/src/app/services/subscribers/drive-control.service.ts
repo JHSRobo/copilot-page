@@ -29,7 +29,7 @@ export class DriveControlService {
 
       // Subscribe to ROS data
       driveControlListener.subscribe((message) => {
-          console.log('Recieved Message on ' + driveControlListener.name + ' : ' + message.bools);
+          // console.log('Recieved Message on ' + driveControlListener.name + ' : ' + message.bools);
           // Adds next value to pass through to observable driveControl
           this.driveControl.next(message);
       });

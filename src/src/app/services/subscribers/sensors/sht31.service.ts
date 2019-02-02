@@ -26,8 +26,8 @@ export class Sht31Service {
 
     // Subscribe to bmpListener
     sht31Listener.subscribe((message) => {
-      //console.log('Recieved Message on ' + sht31Listener.name + ' : ' + message);
-      //console.log(message);
+      // console.log('Recieved Message on ' + sht31Listener.name + ' : ' + message);
+      // console.log(message);
       this.sht31.next(message);
     });
   }

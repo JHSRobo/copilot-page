@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import '../../../../assets/roslib.js';
-import { ImuModel } from "../../data-models/sensor_data/imu.model";
+import { ImuModel } from '../../data-models/sensor_data/imu.model';
 
 
 @Injectable({
