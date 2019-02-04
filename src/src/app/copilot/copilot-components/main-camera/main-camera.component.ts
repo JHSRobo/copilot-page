@@ -119,9 +119,9 @@ export class MainCameraComponent implements OnInit {
         // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
         fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
         // Listens for camera publishers from rqt copilot page
-        // this.cameraSelectService.getData().subscribe((msg) => {
-        //     this.cameraSwitch(msg.data);
-        // });
+        this.cameraSelectService.getData().subscribe((msg) => {
+            this.cameraSwitch(msg.data);
+        });
     }
 
 }
