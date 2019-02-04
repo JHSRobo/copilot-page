@@ -10,6 +10,8 @@ export class SensitivityService {
 
   sensitivityTopic;
 
+  lastMessageState: SensitivityModel = undefined; // The last published message
+
   sensitivityState: BehaviorSubject<SensitivityModel> = new BehaviorSubject(null);
 
 
@@ -35,13 +37,16 @@ export class SensitivityService {
   }
 
   publish(data: SensitivityModel) { // Define ROS topic publisher
-    // @ts-ignore
-    const message = new ROSLIB.Message({
-      l_scale: data.l_scale,
-      a_scale: data.a_scale,
-      v_scale: data.v_scale
-    });
-    this.sensitivityTopic.publish(message);
+    if (data !== this.lastMessageState) {
+      // @ts-ignore
+      const message = new ROSLIB.Message({
+        l_scale: data.l_scale,
+        a_scale: data.a_scale,
+        v_scale: data.v_scale
+      });
+      this.lastMessageState = data; // Sets lastMessage state to this data to prevent double publishing data
+      this.sensitivityTopic.publish(message); // Publishes message
+    }
   }
 
   getData(): Observable<SensitivityModel> { // Define data getter that returns observable
