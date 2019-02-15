@@ -11,6 +11,7 @@ export class CameraSelectService {
   cameraSelectTopic;
 
   cameraSelectState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+  oldState;
 
   // Creates object with the ROS Library
   // @ts-ignore
@@ -28,7 +29,9 @@ export class CameraSelectService {
     });
 
     this.cameraSelectTopic.subscribe((msg: GenericModel) => { // Subscribe to camera select topic
-      this.cameraSelectState.next(msg); // Add value to behavior subject
+      if (msg != this.oldState) {
+        this.cameraSelectState.next(msg); // Add value to behavior subject
+      }
     });
   }
 
@@ -39,7 +42,10 @@ export class CameraSelectService {
       data: number
     });
     // console.log(data);
-    this.cameraSelectTopic.publish(message);
+    if (data != this.oldState) {
+      this.cameraSelectTopic.publish(message);
+    }
+    this.oldState = data;
   }
 
   getData(): Observable<GenericModel> { // Define data getter that returns observable
