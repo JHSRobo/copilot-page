@@ -46,6 +46,7 @@ export class VelocityGraphComponent implements OnInit {
             try {
                 this.check = Math.round(data.orientation.z * (180 / Math.PI));
             } catch (error) {
+                // console.log(error);
             }
             this.hand1.animate({transform: 'r' + this.check + ',' + 96 + ',' + 96}, 500, mina.elastic);
         });

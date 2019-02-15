@@ -13,6 +13,7 @@ export class CameraSelectService {
   lastMessageState: GenericModel = undefined; // The last published message
 
   cameraSelectState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+  oldState;
 
   // Creates object with the ROS Library
   // @ts-ignore
