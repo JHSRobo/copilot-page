@@ -91,7 +91,7 @@ export class MainCameraComponent implements OnInit {
         } else if (value == 8) {
             this.resetCameras();
             this.camera8 = true;
-            this.cameraSelectService.publish(8);3
+            this.cameraSelectService.publish(8);
         } else if (value == 9) {
             this.resetCameras();
             this.camera9 = true;
