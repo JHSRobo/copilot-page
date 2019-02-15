@@ -83,7 +83,7 @@ export class NavComponent implements OnInit {
     }
 
     inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
-        console.log(number + ' Inversion Change Function');
+        // console.log(number + ' Inversion Change Function');
         // Change inversion number
         this.inversion = number;
         // Opens snackbar that displays inversion number
