@@ -10,6 +10,8 @@ export class CameraSelectService {
 
   cameraSelectTopic;
 
+  lastMessageState: GenericModel = undefined; // The last published message
+
   cameraSelectState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
   oldState;
 
@@ -28,24 +30,24 @@ export class CameraSelectService {
       messageType: 'std_msgs/UInt8'
     });
 
-    this.cameraSelectTopic.subscribe((msg: GenericModel) => { // Subscribe to camera select topic
-      if (msg != this.oldState) {
-        this.cameraSelectState.next(msg); // Add value to behavior subject
+    this.cameraSelectTopic.subscribe((data: GenericModel) => { // Subscribe to camera select topic
+      if (data !== this.lastMessageState) {
+        this.cameraSelectState.next(data); // Add value to behavior subject
       }
     });
   }
 
   publish(data) { // Define data publisher that publishes to topic
     const number = Number(data);
-    // @ts-ignore
-    const message = new ROSLIB.Message({
-      data: number
-    });
-    // console.log(data);
-    if (data != this.oldState) {
+    if (data !== this.lastMessageState) {
+      // @ts-ignore
+      const message = new ROSLIB.Message({
+        data: number
+      });
+      this.lastMessageState = data;
       this.cameraSelectTopic.publish(message);
     }
-    this.oldState = data;
+
   }
 
   getData(): Observable<GenericModel> { // Define data getter that returns observable

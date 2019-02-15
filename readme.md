@@ -32,7 +32,9 @@ Publishers:
 * `/rov/thrusters_enabled`: Publishes a boolean whether or not thrusters are enabled
   * Publishes `std_msgs/Bool` message type
 
-S
+Subscribers:
+
+
 
 ## Launch Information
 
