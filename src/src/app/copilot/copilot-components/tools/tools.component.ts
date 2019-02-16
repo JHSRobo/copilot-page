@@ -22,9 +22,9 @@ export class ToolsComponent implements OnInit {
 
     ngOnInit() {
         this.electromagnetService.initialize();
-        this.electromagnetService.getData().subscribe((msg) => {
-          this.electromagnetButtonSwitch(msg);
-        });
+        // this.electromagnetService.getData().subscribe((msg) => {
+        //   this.electromagnetButtonSwitch(msg);
+        // });
     }
 
 }
