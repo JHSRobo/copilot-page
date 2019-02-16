@@ -6,7 +6,7 @@ import {ElectromagnetService} from '../../../services/publishers/electromagnet.s
   templateUrl: './tools.component.html',
   styleUrls: ['./tools.component.css']
 })
-export class ToolsComponent {
+export class ToolsComponent implements OnInit {
 
     name = 'Tools';
     electromagnet = false;
@@ -24,7 +24,7 @@ export class ToolsComponent {
         this.ElectromagnetService.initialize();
         this.ElectromagnetService.getData().subscribe((msg) => {
           this.electromagnetButtonSwitch(msg);
-        }):
+        });
     }
 
 }
