@@ -18,7 +18,7 @@ export class ElectromagnetService {
     url : 'ws://master:9090'
   });
 
-  electromagnetState: BehaviorSubject<number> = new BehaviorSubject(0);
+  electromagnetState: BehaviorSubject<GenericModel> = new BehaviorSubject(undefined);
 
   initialize() {
     // @ts-ignore

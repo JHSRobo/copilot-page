@@ -17,12 +17,12 @@ export class ToolsComponent implements OnInit {
     electromagnetButtonSwitch(msg?) {
       this.electromagnet = !this.electromagnet;
       try { this.electromagnet = msg.data; } catch (error) {}
-      this.ElectromagnetService.publish(this.electromagnetStatus);
+      this.electromagnetService.publish(this.electromagnet);
     }
 
     ngOnInit() {
-        this.ElectromagnetService.initialize();
-        this.ElectromagnetService.getData().subscribe((msg) => {
+        this.electromagnetService.initialize();
+        this.electromagnetService.getData().subscribe((msg) => {
           this.electromagnetButtonSwitch(msg);
         });
     }
