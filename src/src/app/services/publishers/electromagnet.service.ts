@@ -31,18 +31,19 @@ export class ElectromagnetService {
 
     this.electromagnetTopic.subscribe((msg: GenericModel) => { // Subscribe to electronmagnet topic
         // console.log(msg + " this.electronmagnetTopic.subscribe");
-        if (msg !== undefined && msg != this.oldState) { this.electromagnetState.next(msg); } // Add value to behavior subject
+        if (msg !== undefined && msg !== this.oldState) { this.electromagnetState.next(msg); } // Add value to behavior subject
     });
   }
 
   publish(data) {
     const datamessage = data;
     // @ts-ignore
-    const message = new ROSLIB.Message({
-      data : datamessage
-    });
-    this.oldState = data;
-    this.electromagnetTopic.publish(message);
+    if (data !== this.oldState) {
+      const message = new ROSLIB.Message({
+        data : datamessage
+      });
+      this.electromagnetTopic.publish(message);
+    }
   }
 
   getData(): Observable<GenericModel> { return this.electromagnetState.asObservable(); } // Returns observable with data
