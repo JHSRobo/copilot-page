@@ -22,7 +22,7 @@ export class ElectromagnetService {
 
   initialize() {
     // @ts-ignore
-    this.inversionTopic = new ROSLIB.Topic({
+    this.electromagneticTopic = new ROSLIB.Topic({
       ros: this.ros,
       name: '/rov/electromagnet_control',
       messageType: 'std_msgs/Bool'
