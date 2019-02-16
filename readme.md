@@ -1,5 +1,17 @@
 # Copilot Page
 
+Release    
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?branch=release)](https://travis-ci.com/JHSRobo/copilot-page)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhsrobo/copilot-page/badge)](https://www.codefactor.io/repository/github/jhsrobo/copilot-page)
+
+Master     
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?branch=master)](https://travis-ci.com/JHSRobo/copilot-page)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhsrobo/copilot-page/badge)](https://www.codefactor.io/repository/github/jhsrobo/copilot-page)
+
+Development     
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?branch=development)](https://travis-ci.com/JHSRobo/copilot-page)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhsrobo/copilot-page/badge)](https://www.codefactor.io/repository/github/jhsrobo/copilot-page)
+
 ## Overview Description
 
 This package includes the copilot webpage. The webpage is an angular page, more information about the page itself is in readme in the `src` file.
