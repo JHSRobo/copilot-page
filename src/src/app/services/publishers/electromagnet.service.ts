@@ -22,7 +22,7 @@ export class ElectromagnetService {
 
   initialize() {
     // @ts-ignore
-    this.electromagneticTopic = new ROSLIB.Topic({
+    this.electromagnetTopic = new ROSLIB.Topic({
       ros: this.ros,
       name: '/rov/electromagnet_control',
       messageType: 'std_msgs/Bool'
@@ -40,7 +40,7 @@ export class ElectromagnetService {
     const message = new ROSLIB.Message({
       data : number
     });
-    try { this.electromagnetTopic.publish(message); } catch (error) { console.log(error); }
+    this.electromagnetTopic.publish(message);
   }
 
   getData(): Observable<GenericModel> { return this.electromagnetState.asObservable(); } // Returns observable with data
