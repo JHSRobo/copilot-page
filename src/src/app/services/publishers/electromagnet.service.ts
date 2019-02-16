@@ -10,6 +10,7 @@ import '../../../assets/roslib';
 export class ElectromagnetService {
 
   electromagnetTopic; // Object to handle inversion
+  oldState: Bool;
 
   // Creates object with the ROS Library
   // @ts-ignore
@@ -30,7 +31,7 @@ export class ElectromagnetService {
 
     this.electromagnetTopic.subscribe((msg: GenericModel) => { // Subscribe to inversiont topic
         // console.log(msg + " this.inversionTopic.subscribe");
-        if (msg !== undefined) { this.electromagnetState.next(msg); } // Add value to behavior subject
+        if (msg !== undefined && msg != this.oldState) { this.electromagnetState.next(msg); } // Add value to behavior subject
     });
   }
 
@@ -40,6 +41,7 @@ export class ElectromagnetService {
     const message = new ROSLIB.Message({
       data : datamessage
     });
+    this.oldState = data;
     this.electromagnetTopic.publish(message);
   }
 
