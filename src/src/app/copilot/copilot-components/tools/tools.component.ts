@@ -1,4 +1,4 @@
-import {Component, Input } from '@angular/core';
+import {Component, Input, OnInit } from '@angular/core';
 import {ElectromagnetService} from '../../../services/publishers/electromagnet.service';
 
 @Component({
@@ -11,20 +11,20 @@ export class ToolsComponent {
     name = 'Tools';
     electromagnet = false;
 
-    constructor(public ElectromagnetService: ElectromagnetService) {
+    constructor(public electromagnetService: ElectromagnetService) {
     }
 
     electromagnetButtonSwitch(msg?) {
       this.electromagnet = !this.electromagnet;
-      try { this.electromagnet = msg.data};
+      try { this.electromagnet = msg.data; }
       this.ElectromagnetService.publish(this.electromagnetStatus);
     }
 
     ngOnInit() {
         this.ElectromagnetService.initialize();
         this.ElectromagnetService.getData().subscribe((msg) => {
-          this.electromagnetButtonSwitch(msg)
-        })
+          this.electromagnetButtonSwitch(msg);
+        }):
     }
 
 }
