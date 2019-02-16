@@ -38,7 +38,7 @@ export class ElectromagnetService {
     const number = Number(data);
     // @ts-ignore
     const message = new ROSLIB.Message({
-      data : Bool
+      data : bool
     });
     this.electromagnetTopic.publish(message);
   }
