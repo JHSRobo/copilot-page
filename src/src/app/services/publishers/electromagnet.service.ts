@@ -35,10 +35,10 @@ export class ElectromagnetService {
   }
 
   publish(data) {
-    const data = Bool(data);
+    const datamessage = data;
     // @ts-ignore
     const message = new ROSLIB.Message({
-      data : data
+      data : datamessage
     });
     this.electromagnetTopic.publish(message);
   }
