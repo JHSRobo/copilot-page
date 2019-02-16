@@ -16,7 +16,7 @@ export class ToolsComponent implements OnInit {
 
     electromagnetButtonSwitch(msg?) {
       this.electromagnet = !this.electromagnet;
-      try { this.electromagnet = msg.data; }
+      try { this.electromagnet = msg.data; } catch (error) {}
       this.ElectromagnetService.publish(this.electromagnetStatus);
     }
 
