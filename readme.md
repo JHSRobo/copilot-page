@@ -1,6 +1,20 @@
 # Copilot Page
 
-[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?token=MLUeawcs2TVnqzx4kkpM&branch=master)](https://travis-ci.com/JHSRobo/copilot-page)
+----------------------------
+
+Release    
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?branch=release)](https://travis-ci.com/JHSRobo/copilot-page)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhsrobo/copilot-page/badge)](https://www.codefactor.io/repository/github/jhsrobo/copilot-page)
+
+Master     
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?branch=master)](https://travis-ci.com/JHSRobo/copilot-page)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhsrobo/copilot-page/badge)](https://www.codefactor.io/repository/github/jhsrobo/copilot-page)
+
+Development     
+[![Build Status](https://travis-ci.com/JHSRobo/copilot-page.svg?branch=development)](https://travis-ci.com/JHSRobo/copilot-page)
+[![CodeFactor](https://www.codefactor.io/repository/github/jhsrobo/copilot-page/badge)](https://www.codefactor.io/repository/github/jhsrobo/copilot-page)
+
+----------------------
 
 ## Overview Description
 
