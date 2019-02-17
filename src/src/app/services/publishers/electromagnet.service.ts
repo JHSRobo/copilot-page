@@ -1,25 +1,25 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import '../../../assets/roslib';
 import {BehaviorSubject, Observable} from 'rxjs';
 import { GenericModel } from '../data-models/generic.model';
-
-import '../../../assets/roslib';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElectromagnetService {
 
-  electromagnetTopic; // Object to handle electromgnet publication
-  oldState;
+  electromagnetTopic;
+
+  lastMessageState: GenericModel = undefined; // The last published message
+
+  electromagnetState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
 
   // Creates object with the ROS Library
   // @ts-ignore
   ros = new ROSLIB.Ros({
     // Set listen URL for ROS Communication
-    url : 'ws://master:9090'
+    url: 'ws://master:9090'
   });
-
-  electromagnetState: BehaviorSubject<GenericModel> = new BehaviorSubject(undefined);
 
   initialize() {
     // @ts-ignore
@@ -29,23 +29,28 @@ export class ElectromagnetService {
       messageType: 'std_msgs/Bool'
     });
 
-    this.electromagnetTopic.subscribe((msg: GenericModel) => { // Subscribe to electronmagnet topic
-        // console.log(msg + " this.electronmagnetTopic.subscribe");
-        if (msg !== undefined && msg !== this.oldState) { this.electromagnetState.next(msg); } // Add value to behavior subject
+    this.electromagnetTopic.subscribe((data: GenericModel) => { // Subscribe to camera select topic
+      if (data !== this.lastMessageState) {
+        this.electromagnetState.next(data); // Add value to behavior subject
+      }
     });
   }
 
-  publish(data) {
-    const datamessage = data;
-    // @ts-ignore
-    if (data !== this.oldState) {
+  publish(data) { // Define data publisher that publishes to topic
+    const number = data;
+    if (data !== this.lastMessageState) {
+      // @ts-ignore
       const message = new ROSLIB.Message({
-        data : datamessage
+        data: number
       });
+      this.lastMessageState = data;
       this.electromagnetTopic.publish(message);
     }
+
   }
 
-  getData(): Observable<GenericModel> { return this.electromagnetState.asObservable(); } // Returns observable with data
+  getData(): Observable<GenericModel> { // Define data getter that returns observable
+    return this.electromagnetState.asObservable();
+  }
 
 }
