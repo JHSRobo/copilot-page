@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import '../../../assets/roslib';
 import {BehaviorSubject, Observable} from 'rxjs';
 import { GenericModel } from '../data-models/generic.model';
+import {BoolModel} from '../data-models/bool.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class ElectromagnetService {
 
   }
 
-  getData(): Observable<GenericModel> { // Define data getter that returns observable
+  getData(): Observable<BoolModel> { // Define data getter that returns observable
     return this.electromagnetState.asObservable();
   }
 

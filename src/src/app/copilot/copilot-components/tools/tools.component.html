@@ -5,16 +5,18 @@
       <mat-grid-list cols="2" rowHeight="1.7:1" class="toolgird mt-0">
           <mat-grid-tile [colspan]="1" [rowspan]="1">
               <mat-card-actions>
-                  <button mat-raised-button [ngClass]="{'green' : electromagnet, 'red': !electromagnet}" class="px-2 py-2" [value]="1" (click)="electromagnetButtonSwitch()">
+                  <button mat-raised-button [ngClass]="{'green' : electromagnet, 'red': !electromagnet}" class="px-2 py-2" (click)="electromagnetButtonSwitch()">
                       <h2 class="my-3">Electromagnet</h2>
                   </button>
               </mat-card-actions>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="1" [rowspan]="1">
-              <mat-card-actions>
-                  <button mat-raised-button disabled class="px-2 py-2" [value]="2">
-                      <h2 class="my-3">2</h2>
-                  </button>
+              <mat-card-actions id="trout-grout">
+                  <mat-card-actions>
+                      <button mat-raised-button [ngClass]="{'green' : troutGrout, 'red': !troutGrout}" class="px-2 py-2" (click)="troutGroutSwitch()">
+                          <h2 class="my-3">Trout/Grout</h2>
+                      </button>
+                  </mat-card-actions>
               </mat-card-actions>
           </mat-grid-tile>
           <mat-grid-tile [colspan]="1" [rowspan]="1">
