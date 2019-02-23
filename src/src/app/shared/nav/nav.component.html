@@ -1,24 +1,23 @@
 <!-- Party Mode !!!! -->
-<div [ngClass]="{'visible' : visible, 'hidden': !visible}" class="shadow">
-    <div [ngClass]="{'animated fadeInDown faster' : visible, '': !visible}" class="dialog">
-        <h2 class="title">Party Mode?</h2>
-        <h3 class="content">Are you sure you want to party?</h3>
-        <div class="buttons">
-            <button (click)="close()" class="mat-raised-button" color="warn" mat-raised-button>
-                Cancel
-            </button>
-            <button (click)="confirm()" class="mat-raised-button partyConfirm" mat-raised-button
-                    style="margin-left: 10px; color: white;">
-                PARTY!!!!
-            </button>
-        </div>
-    </div>
+<div class="shadow" [ngClass]="{'visible' : visible, 'hidden': !visible}">
+  <div class="dialog" [ngClass]="{'animated fadeInDown faster' : visible, '': !visible}">
+    <h2 class="title">Party Mode?</h2>
+    <h3 class="content">Are you sure you want to party?</h3>
+    <div class="buttons">
+      <button mat-raised-button color="warn" class="mat-raised-button" (click)="close()">
+        Cancel
+      </button>
+      <button mat-raised-button style="margin-left: 10px; color: white;" class="mat-raised-button partyConfirm" (click)="confirm()">
+        PARTY!!!!
+      </button>
+    </div>cd
+  </div>
 </div>
 <div class="partyMode" [ngClass]="{'visible' : partyModevisible, 'hidden': !partyModevisible}">
-    <img class="gif" src="../../../assets/party.gif">
-    <button mat-raised-button class="mat-raised-button partyStop" (click)="stop()">
-        Stop
-    </button>
+  <img class="gif" src="../../../assets/party.gif">
+  <button mat-raised-button class="mat-raised-button partyStop" (click)="stop()">
+    Stop
+  </button>
 </div>
 <button mat-button style="color: white;" class="mat-button party" (click)="openConfirm()">
 </button>
@@ -26,34 +25,35 @@
 <!-- Normal Code -->
 <!-- ----------------------------------------------------------------------- -->
 <mat-sidenav-container class="sidenav-container" color="secondary">
-    <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
-        <div class="centeringdiv"></div>
-        <mat-nav-list color="primary" *ngFor="let icon of icons">
+  <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
+    <button mat-button class="status-icon" [disabled]="!rosConnected" id="ros-button">
+      <mat-icon [inline]="true">wifi</mat-icon>
+    </button>
+    <div class="centeringdiv"></div>
+    <mat-nav-list color="primary" *ngFor="let icon of icons">
+      <a mat-list-item
+      (click)="selected(icon)"
+       href='{{ icon.link }}'
+      >
+        <img #House
+        id="icons.id"
+        [src]="icon.selected ? icon.clickedsrc : icon.src"
+        alt="Home"
+        width="42"
+        height="42"
+        border="0"
+        >
+      </a>
+    </mat-nav-list>
+    <div class="centeringdiv"></div>
+    <button mat-button class="status-icon" (click)="thrustersToggle()" [disabled]="!thrusterStatus">
+      <mat-icon [inline]="true">verified_user</mat-icon>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content style="overflow: hidden;">
+    <!-- Router Outlet means that all navigable links go through this outlet -->
 
-            <a mat-list-item
-               (click)="selected(icon)"
-               href='{{ icon.link }}'
-            >
-                <img #House
-                     id="icons.id"
-                     [src]="icon.selected ? icon.clickedsrc : icon.src"
-                     alt="Home"
-                     width="42"
-                     height="42"
-                     border="0"
-                >
-            </a>
+    <router-outlet></router-outlet>
 
-        </mat-nav-list>
-        <div class="centeringdiv"></div>
-        <button mat-button class="thrusterButton" (click)="thrustersToggle()" [disabled]="!thrusterStatus">
-            <mat-icon [inline]="true">verified_user</mat-icon>
-        </button>
-    </mat-sidenav>
-    <mat-sidenav-content style="overflow: hidden;">
-        <!-- Router Outlet means that all navigable links go through this outlet -->
-
-        <router-outlet></router-outlet>
-
-    </mat-sidenav-content>
+  </mat-sidenav-content>
 </mat-sidenav-container>

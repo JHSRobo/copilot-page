@@ -1,6 +1,80 @@
-<mat-card class="dashboard-card-long">
-    <app-card-header [card-name]="name"></app-card-header>
-    <mat-card-content id="content">
 
-    </mat-card-content>
+<mat-card class="dashboard-card-long">
+  <app-card-header [card-name]="name"></app-card-header>
+  <mat-card-content class="p-2">
+      <mat-grid-list cols="2" rowHeight="1.7:1" class="toolgird mt-0">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button [ngClass]="{'green' : electromagnet, 'red': !electromagnet}" class="px-2 py-2" (click)="electromagnetButtonSwitch()">
+                      <h2 class="my-3">Electromagnet</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions id="trout-grout">
+                  <mat-card-actions>
+                      <button mat-raised-button [ngClass]="{'green' : troutGrout, 'red': !troutGrout}" class="px-2 py-2" (click)="troutGroutSwitch()">
+                          <h2 class="my-3">Trout/Grout</h2>
+                      </button>
+                  </mat-card-actions>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="3">
+                      <h2 class="my-3">3</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="4">
+                      <h2 class="my-3">4</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="5">
+                      <h2 class="my-3">5</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="6">
+                      <h2 class="my-3">6</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="7">
+                      <h2 class="my-3">7</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="8">
+                      <h2 class="my-3">8</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="9">
+                      <h2 class="my-3">9</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-card-actions>
+                  <button mat-raised-button disabled class="px-2 py-2" [value]="10">
+                      <h2 class="my-3">10</h2>
+                  </button>
+              </mat-card-actions>
+          </mat-grid-tile>
+      </mat-grid-list>
+  </mat-card-content>
 </mat-card>

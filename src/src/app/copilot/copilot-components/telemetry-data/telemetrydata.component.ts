@@ -5,6 +5,8 @@ import {PressureService} from '../../../services/subscribers/sensors/pressure.se
 import {RelativeHumidityModel} from '../../../services/data-models/sensor_data/relative-humidity.model';
 import {FluidPressureModel} from '../../../services/data-models/sensor_data/fluid-pressure.model';
 import {TemperatureModel} from '../../../services/data-models/sensor_data/temperature.model';
+import {Drq1Service} from '../../../services/subscribers/drq-1.service';
+import {DrqModel} from '../../../services/data-models/drq.model';
 
 @Component({
     selector: 'app-telemetrydata',
@@ -16,19 +18,21 @@ export class TelemetrydataComponent implements OnInit {
     rovTemperature: number; // ROV temperature in Celsius
     rovPressure: number; // ROV Altitude in atm (can change to pascal)
     rovHumidity: number; // ROV humidity in percent?
-    rovVoltage: number; // ROV Voltage in Volts
-    rovCurrent: number; // ROV Current in Amps
+    rovVoltage: number; // DRQ Voltage
+    rovCurrent: number; // DRQ Current
     multiplier: number;
-
-    constructor(
-        private humidityService: HumidityService,
-        private temperatureService: TemperatureService,
-        private pressureService: PressureService) {
-    }
 
     round(value, precision) {
         this.multiplier = Math.pow(10, precision || 0);
         return Math.round(value * this.multiplier) / this.multiplier;
+    }
+
+    constructor(
+        private humidityService: HumidityService,
+        private temperatureService: TemperatureService,
+        private pressureService: PressureService,
+        private drqService: Drq1Service
+    ) {
     }
 
     ngOnInit() {
@@ -52,6 +56,14 @@ export class TelemetrydataComponent implements OnInit {
         this.pressureService.getData().subscribe((msg: FluidPressureModel) => {
             try {
                 this.rovPressure = this.round(msg.fluid_pressure, 1);
+            } catch (error) {
+            }
+        });
+        this.drqService.initialize();
+        this.drqService.getData().subscribe((msg: DrqModel) => {
+            try {
+                this.rovVoltage = msg.Vout;
+                this.rovCurrent = msg.Iout;
             } catch (error) {
             }
         });

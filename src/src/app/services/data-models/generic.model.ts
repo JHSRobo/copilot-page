@@ -1,3 +1,4 @@
+
 export class GenericModel {
-    data: number;
+  data: number;
 }

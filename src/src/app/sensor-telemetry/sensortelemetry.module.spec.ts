@@ -1,13 +1,13 @@
-import {SensortelemetryModule} from './sensortelemetry.module';
+import { SensortelemetryModule } from './sensortelemetry.module';
 
 describe('SensortelemetryModule', () => {
-    let sensortelemetryModule: SensortelemetryModule;
+  let sensortelemetryModule: SensortelemetryModule;
 
-    beforeEach(() => {
-        sensortelemetryModule = new SensortelemetryModule();
-    });
+  beforeEach(() => {
+    sensortelemetryModule = new SensortelemetryModule();
+  });
 
-    it('should create an instance', () => {
-        expect(sensortelemetryModule).toBeTruthy();
-    });
+  it('should create an instance', () => {
+    expect(sensortelemetryModule).toBeTruthy();
+  });
 });

@@ -4,6 +4,7 @@ import {MatSnackBar} from '@angular/material';
 
 import {ThrustersStatusService} from '../../services/publishers/thrusters-status.service';
 import {InversionService} from '../../services/publishers/inversion.service';
+import {RosService} from '../../services/subscribers/ros.service';
 
 @Component({
     selector: 'app-nav',
@@ -41,6 +42,7 @@ export class NavComponent implements OnInit {
     thrusterStatus = false;
     inversion = 0; // Default inversion is forward facing forward
     visible = false; // Dialog Visibility
+    rosConnected = false; // ROS connection status
 
     partyModevisible = false; // Party mode dialog Visibility
     audio = new Audio('../../../assets/Party.mp3'); // Part Music
@@ -50,32 +52,50 @@ export class NavComponent implements OnInit {
         private thrusterStatusService: ThrustersStatusService,
         public thrusterNotification: MatSnackBar,
         private inversionService: InversionService,
-        public inversionNotification: MatSnackBar) {
+        private rosService: RosService,
+        public inversionNotification: MatSnackBar,
+        public rosNotification: MatSnackBar) {
     }
 
     thrustersToggle() { // Toggles UI and code, doesn't publish to topic
         // Changes thruster status
         this.thrusterStatus = !this.thrusterStatus;
         // Opens snackbar (that's the real name) that displays thruster status
-        this.thrusterNotification.open(this.thrusterStatus ? 'Thrusters Enabled' : 'Thrusters Disabled', 'Exit', {
-            duration: 3000,
-            panelClass: ['snackbar']
-        });
+        try {
+            this.thrusterNotification.open(this.thrusterStatus ? 'Thrusters Enabled' : 'Thrusters Disabled', 'Exit', {
+                duration: 3000,
+                panelClass: ['snackbar']
+            });
+        } catch (error) {
+        }
+    }
+
+    rosServiceToggle(msg) {
+        // Settimeout workaround for an error, reference https://github.com/angular/angular/issues/15634#issuecomment-345504902
+        this.rosConnected = msg;
+        try {
+            setTimeout(() => {
+                this.rosNotification.open(msg ? 'ROS Connected' : 'ROS Disconnected', 'Exit', {
+                    duration: 20000,
+                    panelClass: ['snackbar']
+                });
+            });
+        } catch (error) {
+        }
     }
 
     inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
-        console.log(number + " Inversion Change Function");
+        // console.log(number + ' Inversion Change Function');
         // Change inversion number
         this.inversion = number;
         // Opens snackbar that displays inversion number
-        // TODO Figure out way to do this better? It gives error that ExfpressionChangedAfterItHasBeenChecked if  a real value was passed through the snackbar
+        // TODO Better way? It gives error that ExfpressionChangedAfterItHasBeenChecked if  a real value was passed through
         try {
             this.inversionNotification.open('Inversion mode changed to ' + this.inversion, 'Exit', {
                 duration: 3000,
                 panelClass: ['snackbar']
             });
         } catch (error) {
-            console.log(error);
         }
 
     }
@@ -111,8 +131,8 @@ export class NavComponent implements OnInit {
 
     // Resets icons except for selected icon
     selected(icon) {
-        for (const icon of this.icons) {
-            icon.selected = false;
+        for (const iconAll of this.icons) {
+            iconAll.selected = false;
         }
         icon.selected = true;
     }
@@ -124,17 +144,24 @@ export class NavComponent implements OnInit {
         this.thrusterStatusService.initialize();
         this.thrusterStatusService.getData().subscribe((msg) => {
             try {
-                (this.thrusterStatus !== msg.data) ? this.thrustersToggle() : null; // Toggles thrusters if topics dont match local and real
+                if (this.thrusterStatus !== msg.data) { this.thrustersToggle(); } // Toggles thrusters if topics dont match local and real
             } catch (error) {
             }
         });
 
         this.inversionService.initialize();
         this.inversionService.getData().subscribe((msg) => {
-            console.log(msg + " Get Data");
             try {
                 // Changes inversion if it's not the same and it exists in the message (avoids bug)
-                (this.inversion !== msg.data && msg !== undefined) ? this.inversionChange(msg.data) : null;
+                if (this.inversion !== msg.data && msg !== undefined) { this.inversionChange(msg.data); }
+            } catch (error) {
+            }
+        });
+
+        this.rosService.initialize();
+        this.rosService.connectedStatus().subscribe((msg) => {
+            try {
+                this.rosServiceToggle(msg);
             } catch (error) {
             }
         });

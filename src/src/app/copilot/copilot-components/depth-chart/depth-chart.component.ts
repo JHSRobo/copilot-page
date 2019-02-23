@@ -1,4 +1,4 @@
-import {AfterViewInit, Component,} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 import {Chart} from 'chart.js';
 import {Ms5837Service} from '../../../services/subscribers/sensors/ms5837.service';
 import {Ms5837Data} from '../../../services/data-models/ms5837.model';
@@ -10,16 +10,17 @@ import {Ms5837Data} from '../../../services/data-models/ms5837.model';
 })
 
 export class DepthChartComponent implements AfterViewInit {
-    name: 'Depth Chart';
+    name = 'Depth Chart';
+
     rovDepth: number; // ROV Depth in Meters
     multiplier: number;
-
-    constructor(private ms5837Service: Ms5837Service) {
-    }
 
     round(value, precision) {
         this.multiplier = Math.pow(10, precision || 0);
         return Math.round(value * this.multiplier) / this.multiplier;
+    }
+
+    constructor(private ms5837Service: Ms5837Service) {
     }
 
     ngAfterViewInit() {

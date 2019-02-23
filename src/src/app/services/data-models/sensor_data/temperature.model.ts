@@ -1,3 +1,4 @@
+
 export class TemperatureModel {
     header: {
         frame_id: string;

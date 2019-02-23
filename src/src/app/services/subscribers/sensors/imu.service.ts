@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import '../../../../assets/roslib.js';
+import { ImuModel } from '../../data-models/sensor_data/imu.model';
 
 
 @Injectable({
@@ -33,7 +34,7 @@ export class ImuService {
     }
 
     // Define data getter
-    getData(): Observable<any> {
+    getData(): Observable<ImuModel> {
         return this.imu.asObservable();
     }
 }

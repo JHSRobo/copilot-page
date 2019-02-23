@@ -1,26 +1,24 @@
-.dashboard-card-drq-card {
+.dashboard-card-drq-card{
     width: 44%;
-    height: 86%;
+    height: 69%;
     margin-left: 3%;
+    margin-top: 42px;
     text-align: center;
     float: left;
     background-color: #4B4D6A !important;
 }
-
 .line {
     width: 90%;
     background-color: #8191A8;
     margin-top: 10%;
     margin-bottom: 7%;
 }
-
 .smalltext {
     font-size: 15px;
     text-align: left;
     margin-top: 2%;
     color: #8191A8;
 }
-
 .righttext {
     font-size: 15px;
     text-align: right;
