@@ -7,7 +7,7 @@ mat-sidenav-content {
 }
 
 
-.thrusterButton {
+.status-icon {
   font-size: 30pt;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -27,7 +27,7 @@ mat-sidenav-content {
 }
 
 .centeringdiv {
-  height: 36%;
+  height: 35%;
 }
 
 
@@ -138,4 +138,8 @@ mat-sidenav-content {
   margin-top: 377px;
   margin-left: 580px;
   width: 40%;
+}
+
+#ros-button {
+  margin-top: 10px;
 }
