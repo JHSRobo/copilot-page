@@ -2,18 +2,18 @@ import {Injectable} from '@angular/core';
 import '../../../assets/roslib';
 import {BehaviorSubject, Observable} from 'rxjs';
 import { GenericModel } from '../data-models/generic.model';
+import {BoolModel} from '../data-models/bool.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CameraSelectService {
+export class TroutGroutService {
 
-  cameraSelectTopic;
+  troutGroutTopic;
 
   lastMessageState: GenericModel = undefined; // The last published message
 
-  cameraSelectState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
-  oldState;
+  troutGroutMotorState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
 
   // Creates object with the ROS Library
   // @ts-ignore
@@ -24,34 +24,34 @@ export class CameraSelectService {
 
   initialize() {
     // @ts-ignore
-    this.cameraSelectTopic = new ROSLIB.Topic({
+    this.troutGroutTopic = new ROSLIB.Topic({
       ros: this.ros,
-      name: '/rov/camera_select',
-      messageType: 'std_msgs/UInt8'
+      name: '/rov/trout_grout',
+      messageType: 'std_msgs/Bool'
     });
 
-    this.cameraSelectTopic.subscribe((data: GenericModel) => { // Subscribe to camera select topic
+    this.troutGroutTopic.subscribe((data: GenericModel) => { // Subscribe to trout grout topic
       if (data !== this.lastMessageState) {
-        this.cameraSelectState.next(data); // Add value to behavior subject
+        this.troutGroutMotorState.next(data); // Add value to behavior subject
       }
     });
   }
 
   publish(data) { // Define data publisher that publishes to topic
-    const number = Number(data);
+    const state = data;
     if (data !== this.lastMessageState) {
       // @ts-ignore
       const message = new ROSLIB.Message({
-        data: number
+        data: state
       });
       this.lastMessageState = data;
-      this.cameraSelectTopic.publish(message);
+      this.troutGroutTopic.publish(message);
     }
 
   }
 
-  getData(): Observable<GenericModel> { // Define data getter that returns observable
-    return this.cameraSelectState.asObservable();
+  getData(): Observable<BoolModel> { // Define data getter that returns observable
+    return this.troutGroutMotorState.asObservable();
   }
 
 }

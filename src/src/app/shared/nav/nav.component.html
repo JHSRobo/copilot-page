@@ -26,9 +26,11 @@
 <!-- ----------------------------------------------------------------------- -->
 <mat-sidenav-container class="sidenav-container" color="secondary">
   <mat-sidenav opened #sidenav mode="side" [fixedInViewport]=true id="sidenav">
+    <button mat-button class="status-icon" [disabled]="!rosConnected" id="ros-button" disabled>
+      <mat-icon [inline]="true">wifi</mat-icon>
+    </button>
     <div class="centeringdiv"></div>
     <mat-nav-list color="primary" *ngFor="let icon of icons">
-
       <a mat-list-item
       (click)="selected(icon)"
        href='{{ icon.link }}'
@@ -42,11 +44,10 @@
         border="0"
         >
       </a>
-
     </mat-nav-list>
     <div class="centeringdiv"></div>
-    <button mat-button class="thrusterButton" (click)="thrustersToggle()" [disabled]="!thrusterStatus">
-        <mat-icon [inline]="true">verified_user</mat-icon>
+    <button mat-button class="status-icon" (click)="thrustersToggle()" [disabled]="!thrusterStatus">
+      <mat-icon [inline]="true">verified_user</mat-icon>
     </button>
   </mat-sidenav>
   <mat-sidenav-content style="overflow: hidden;">

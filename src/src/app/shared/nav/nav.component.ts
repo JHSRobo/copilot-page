@@ -42,6 +42,7 @@ export class NavComponent implements OnInit {
     thrusterStatus = false;
     inversion = 0; // Default inversion is forward facing forward
     visible = false; // Dialog Visibility
+    rosConnected = false; // ROS connection status
 
     partyModevisible = false; // Party mode dialog Visibility
     audio = new Audio('../../../assets/Party.mp3'); // Part Music
@@ -71,6 +72,7 @@ export class NavComponent implements OnInit {
 
     rosServiceToggle(msg) {
         // Settimeout workaround for an error, reference https://github.com/angular/angular/issues/15634#issuecomment-345504902
+        this.rosConnected = msg;
         try {
             setTimeout(() => {
                 this.rosNotification.open(msg ? 'ROS Connected' : 'ROS Disconnected', 'Exit', {
@@ -83,7 +85,7 @@ export class NavComponent implements OnInit {
     }
 
     inversionChange(number: number) { // Toggles UI and code, doesn't publish to topic
-        console.log(number + ' Inversion Change Function');
+        // console.log(number + ' Inversion Change Function');
         // Change inversion number
         this.inversion = number;
         // Opens snackbar that displays inversion number
