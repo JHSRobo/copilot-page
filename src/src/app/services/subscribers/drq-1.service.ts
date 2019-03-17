@@ -22,7 +22,7 @@ export class Drq1Service {
     // @ts-ignore
     const drq1Listener = new ROSLIB.Topic({
       ros: this.ros,
-      name: '/rov/drq_1',
+      name: '/rov/drq1250_1',
       messageType: 'drq1250/DRQ1250'
     });
 
@@ -34,4 +34,3 @@ export class Drq1Service {
   // Define data getter
   getData(): Observable<any> { return this.drq1.asObservable(); }
 }
-
