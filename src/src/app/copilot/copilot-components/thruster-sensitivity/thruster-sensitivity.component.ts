@@ -30,5 +30,6 @@ export class ThrusterSensitivityComponent implements OnInit {
     this.sensitivityService.getData().subscribe((msg: SensitivityModel) => {
       if (msg) { this.sensitivity = msg; }
     });
+    this.update();
   }
 }
