@@ -30,8 +30,8 @@ export class SystemsComponent implements OnInit {
     };
 
     setIntervalX(callback, delay, repetitions) {
-      var x = 0;
-      var intervalID = setInterval(function () {
+      let x = 0;
+      const intervalID = setInterval(function () {
 
         callback();
 
@@ -42,42 +42,42 @@ export class SystemsComponent implements OnInit {
     }
 
     upwardstab() {
-      this.setIntervalX(function(){
+      this.setIntervalX(function() {
         this.verticalthrusters.t1 = -100;
         this.verticalthrusters.t2 = -100;
         this.verticalthrusters.t3 = -100;
         this.verticalthrusters.t4 = -100;
-        this.verticalService.publish(this.verticalthrusters)
+        this.verticalService.publish(this.verticalthrusters);
       }, 200, 10);
     }
 
     downwardstab() {
-      this.setIntervalX(function(){
+      this.setIntervalX(function() {
         this.verticalthrusters.t1 = 100;
         this.verticalthrusters.t2 = 100;
         this.verticalthrusters.t3 = 100;
         this.verticalthrusters.t4 = 100;
-        this.verticalService.publish(this.verticalthrusters)
+        this.verticalService.publish(this.verticalthrusters);
       }, 200, 10);
     }
 
     rightstab() {
-      this.setIntervalX(function(){
+      this.setIntervalX(function() {
         this.horizontalthrusters.t1 = 100;
         this.horizontalthrusters.t2 = -100;
         this.horizontalthrusters.t3 = -100;
         this.horizontalthrusters.t4 = 100;
-        this.horizontalService.publish(this.horizontalthrusters)
+        this.horizontalService.publish(this.horizontalthrusters);
       }, 200, 10);
     }
 
     leftstab() {
-      this.setIntervalX(function(){
+      this.setIntervalX(function() {
         this.horizontalthrusters.t1 = -100;
         this.horizontalthrusters.t2 = 100;
         this.horizontalthrusters.t3 = 100;
         this.horizontalthrusters.t4 = -100;
-        this.horizontalService.publish(this.horizontalthrusters)
+        this.horizontalService.publish(this.horizontalthrusters);
       }, 200, 10);
     }
 
