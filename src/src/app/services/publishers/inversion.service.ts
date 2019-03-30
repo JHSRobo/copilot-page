@@ -11,6 +11,11 @@ export class InversionService {
 
   inversionTopic; // Object to handle inversion
 
+  lastMessageState: GenericModel = undefined; // The last published message
+
+  inversionState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
+  oldState;
+
   // Creates object with the ROS Library
   // @ts-ignore
   ros = new ROSLIB.Ros({
@@ -37,10 +42,14 @@ export class InversionService {
   publish(data) {
     const number = Number(data);
     // @ts-ignore
-    const message = new ROSLIB.Message({
-      data : number
-    });
-    try { this.inversionTopic.publish(message); } catch (error) { console.log(error); }
+    if (data !== this.lastMessageState) {
+      // @ts-ignore
+      const message = new ROSLIB.Message({
+        data: number
+      });
+      this.lastMessageState = data;
+      this.inversionTopic.publish(message);
+    }
   }
 
   getData(): Observable<GenericModel> { return this.inversionState.asObservable(); } // Returns observable with data
