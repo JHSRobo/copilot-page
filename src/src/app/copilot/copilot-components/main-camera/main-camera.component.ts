@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CameraSelectService} from '../../../services/publishers/camera-select.service';
+import {InversionService} from '../../../services/publishers/inversion.service';
 import {fromEvent} from 'rxjs';
 
 @Component({
@@ -10,7 +11,7 @@ import {fromEvent} from 'rxjs';
 export class MainCameraComponent implements OnInit {
 
     // Initializes CameraSelectService
-    constructor(public cameraSelectService: CameraSelectService) {
+    constructor(public cameraSelectService: CameraSelectService, public inversionService: InversionService) {
     }
 
     // Declares name for window, arrays for cameras (should probably change to objects)
@@ -68,16 +69,19 @@ export class MainCameraComponent implements OnInit {
                 this.camera1 = true;
                 console.log('Camera 1');
                 this.cameraSelectService.publish(1);
+                this.inversionService.publish(0);
                 break;
             case 2:
                 this.resetCamera();
                 this.camera2 = true;
                 this.cameraSelectService.publish(2);
+                this.inversionService.publish(2);
                 break;
             case 3:
                 this.resetCamera();
                 this.camera3 = true;
                 this.cameraSelectService.publish(3);
+                this.inversionService.publish(2);
                 break;
             case 4:
                 this.resetCamera();
