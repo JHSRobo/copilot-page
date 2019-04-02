@@ -12,8 +12,6 @@ export class InversionService {
   inversionTopic; // Object to handle inversion
 
   lastMessageState: GenericModel = undefined; // The last published message
-
-  inversionState: BehaviorSubject<any> = new BehaviorSubject('Untouched');
   oldState;
 
   // Creates object with the ROS Library
