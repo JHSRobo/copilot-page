@@ -18,9 +18,9 @@ export class ToolsComponent implements OnInit {
     }
 
     keyPress(event) {
-        if (event.key == z) {
+        if (event.key == 'z') {
             this.electromagnetButtonSwitch();
-        } else if (event.key == x) {
+        } else if (event.key == 'x') {
             this.troutGroutSwitch();
         } else {
         }
