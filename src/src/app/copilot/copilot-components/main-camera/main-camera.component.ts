@@ -81,7 +81,7 @@ export class MainCameraComponent implements OnInit {
                 this.resetCamera();
                 this.camera3 = true;
                 this.cameraSelectService.publish(3);
-                this.inversionService.publish(2);
+                this.inversionService.publish(0);
                 break;
             case 4:
                 this.resetCamera();
