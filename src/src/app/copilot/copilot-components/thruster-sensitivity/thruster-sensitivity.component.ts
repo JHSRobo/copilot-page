@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { SensitivityService } from '../../../services/publishers/sensitivity.service';
 import { SensitivityModel } from '../../../services/data-models/sensitivity.model';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-thruster-sensitivity',
@@ -21,6 +22,15 @@ export class ThrusterSensitivityComponent implements OnInit {
     a_scale: .5,
   };
 
+  keyPress(event) {
+      if (event.key == 'z' && ) {
+
+      } else if (event.key == 'x') {
+      } else {
+        console.log(event.key);
+      }
+  }
+
   update() {
     this.sensitivityService.publish(this.sensitivity);
   }
@@ -31,5 +41,7 @@ export class ThrusterSensitivityComponent implements OnInit {
       if (msg) { this.sensitivity = msg; }
     });
     this.update();
+    // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
+    fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
   }
 }
