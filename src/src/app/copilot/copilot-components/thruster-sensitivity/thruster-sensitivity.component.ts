@@ -23,7 +23,6 @@ export class ThrusterSensitivityComponent implements OnInit {
   };
 
   keyPress(event) {
-    event.preventDefault();
     console.log(event);
       if (event.key == 'ArrowRight' && event.ctrlKey == true) {
         this.sensitivity.l_scale = this.sensitivity.l_scale + 0.05;
