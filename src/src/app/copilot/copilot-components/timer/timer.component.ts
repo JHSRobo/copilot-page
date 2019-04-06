@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class TimerComponent {
 
   name = 'Stopwatch';
-  seconds = '00';
-  minutes = '00';
+  seconds = 0;
+  minutes = 0;
   timerInterval;
   stopped = true;
 
@@ -18,8 +18,8 @@ export class TimerComponent {
     // Set temporary seconds and minutes variables
     this.timerInterval = setInterval(() => {
       this.seconds = this.seconds + 1;
-      if (this.seconds == 10) {
-        this.seconds = 00;
+      if (this.seconds == 60) {
+        this.seconds = 0;
         this.minutes = this.minutes + 1;
       }
     }, 1000);
