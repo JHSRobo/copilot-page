@@ -22,22 +22,22 @@ export class ThrusterSensitivityComponent implements OnInit {
     a_scale: .5,
   };
 
-  keyPress(event) {
-      if (event.key == 'ArrowRight' && event.ctrlKey == true) {
-        this.sensitivity.l_scale = this.sensitivity.l_scale + 0.05;
-      } else if (event.key == 'ArrowLeft' && event.ctrlKey == true) {
-        this.sensitivity.l_scale = this.sensitivity.l_scale - 0.05;
-      } else if (event.key == 'ArrowUp' && event.ctrlKey == true) {
-        this.sensitivity.v_scale = this.sensitivity.l_scale + 0.05;
-      } else if (event.key == 'ArrowDown' && event.ctrlKey == true) {
-        this.sensitivity.v_scale = this.sensitivity.l_scale - 0.05;
-      } else if (event.key == '/' && event.ctrlKey == true) {
-        this.sensitivity.a_scale = this.sensitivity.l_scale + 0.05;
-      } else if (event.key == '.' && event.ctrlKey == true) {
-        this.sensitivity.a_scale = this.sensitivity.l_scale - 0.05;
-      } else {
-      }
-  }
+  // keyPress(event) {
+  //     if (event.key == 'ArrowRight' && event.ctrlKey == true) {
+  //       this.sensitivity.l_scale = this.sensitivity.l_scale + 0.05;
+  //     } else if (event.key == 'ArrowLeft' && event.ctrlKey == true) {
+  //       this.sensitivity.l_scale = this.sensitivity.l_scale - 0.05;
+  //     } else if (event.key == 'ArrowUp' && event.ctrlKey == true) {
+  //       this.sensitivity.v_scale = this.sensitivity.l_scale + 0.05;
+  //     } else if (event.key == 'ArrowDown' && event.ctrlKey == true) {
+  //       this.sensitivity.v_scale = this.sensitivity.l_scale - 0.05;
+  //     } else if (event.key == '/' && event.ctrlKey == true) {
+  //       this.sensitivity.a_scale = this.sensitivity.l_scale + 0.05;
+  //     } else if (event.key == '.' && event.ctrlKey == true) {
+  //       this.sensitivity.a_scale = this.sensitivity.l_scale - 0.05;
+  //     } else {
+  //     }
+  // }
 
   update() {
     this.sensitivityService.publish(this.sensitivity);
