@@ -25,15 +25,19 @@ export class ThrusterSensitivityComponent implements OnInit {
   keyPress(event) {
     event.ctrlKey.preventDefault();
     event.altKey.preventDefault();
+    event.shiftKey.preventDefault();
+    console.log(event);
       if (event.key == 'ArrowRight' && event.ctrlKey == true) {
         this.sensitivity.l_scale = this.sensitivity.l_scale + 0.05;
       } else if (event.key == 'ArrowLeft' && event.ctrlKey == true) {
         this.sensitivity.l_scale = this.sensitivity.l_scale - 0.05;
       } else if (event.key == 'ArrowRight' && event.altKey == true) {
+        console.log("ALt and arrow")
         this.sensitivity.v_scale = this.sensitivity.l_scale + 0.05;
       } else if (event.key == 'ArrowLeft' && event.altKey == true) {
         this.sensitivity.v_scale = this.sensitivity.l_scale - 0.05;
       } else if (event.key == 'ArrowRight' && event.shiftKey == true) {
+        console.log("Shift and arrow")
         this.sensitivity.a_scale = this.sensitivity.l_scale + 0.05;
       } else if (event.key == 'ArrowLeft' && event.shiftKey == true) {
         this.sensitivity.a_scale = this.sensitivity.l_scale - 0.05;
