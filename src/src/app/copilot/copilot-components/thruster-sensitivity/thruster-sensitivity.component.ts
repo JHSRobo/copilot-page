@@ -23,11 +23,19 @@ export class ThrusterSensitivityComponent implements OnInit {
   };
 
   keyPress(event) {
-      if (event.key == 'z') {
-
-      } else if (event.key == 'x') {
+      if (event.key == 'ArrowRight' && event.ctrlKey == true) {
+        this.sensitivity.l_scale = this.sensitivity.l_scale + 0.05;
+      } else if (event.key == 'ArrowLeft' && event.ctrlKey == true) {
+        this.sensitivity.l_scale = this.sensitivity.l_scale - 0.05;
+      } else if (event.key == 'ArrowRight' && event.altKey == true) {
+        this.sensitivity.v_scale = this.sensitivity.l_scale + 0.05;
+      } else if (event.key == 'ArrowLeft' && event.altKey == true) {
+        this.sensitivity.v_scale = this.sensitivity.l_scale - 0.05;
+      } else if (event.key == 'ArrowRight' && event.shiftKey == true) {
+        this.sensitivity.a_scale = this.sensitivity.l_scale + 0.05;
+      } else if (event.key == 'ArrowLeft' && event.shiftKey == true) {
+        this.sensitivity.a_scale = this.sensitivity.l_scale - 0.05;
       } else {
-        console.log(event.key);
       }
   }
 
