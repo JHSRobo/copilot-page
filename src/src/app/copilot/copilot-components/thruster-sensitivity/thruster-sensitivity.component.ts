@@ -23,7 +23,7 @@ export class ThrusterSensitivityComponent implements OnInit {
   };
 
   keyPress(event) {
-      if (event.key == 'z' && ) {
+      if (event.key == 'z') {
 
       } else if (event.key == 'x') {
       } else {
