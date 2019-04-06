@@ -18,10 +18,15 @@ export class TimerComponent implements OnInit {
 
   keyPress(event) {
       if (event.key == 't') {
+        if (this.stopped) {
           this.startTimer();
-      } else if (event.key == 'y') {
+        } else {
           this.stopTimer();
+        }
+      } else if (event.key == 'y') {
+        if (this.stopped) {
           this.resetTimer();
+        }
       } else {
       }
   }
@@ -51,7 +56,7 @@ export class TimerComponent implements OnInit {
       this.displayMinutes = (tempMinutes > 9 ? tempMinutes.toString() : ((tempMinutes) ? '0' + tempMinutes.toString() : '00'));
       // Add a number to temp seconds
       tempSeconds += 1;
-    }, 100);
+    }, 1000);
     this.stopped = false;
   }
 

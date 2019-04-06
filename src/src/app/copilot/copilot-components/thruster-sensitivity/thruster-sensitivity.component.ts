@@ -50,6 +50,6 @@ export class ThrusterSensitivityComponent implements OnInit {
     });
     this.update();
     // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
-    fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
+    // fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
   }
 }
