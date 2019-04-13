@@ -34,4 +34,3 @@ export class Drq1Service {
   // Define data getter
   getData(): Observable<any> { return this.drq1.asObservable(); }
 }
-

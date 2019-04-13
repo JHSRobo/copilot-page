@@ -113,17 +113,17 @@ export class NavComponent implements OnInit {
                 this.inversionService.publish(this.inversion);
                 break;
 
-            case 'd':
+            case 's':
                 this.inversionChange(2); // Right is front
                 this.inversionService.publish(this.inversion);
                 break;
 
-            case 's':
+            case 'd':
                 this.inversionChange(3); // Back is front
                 this.inversionService.publish(this.inversion);
                 break;
 
-            case ' ':
+            case 'f':
                 this.thrustersToggle();
                 this.thrusterStatusService.publish(this.thrusterStatus);
         }

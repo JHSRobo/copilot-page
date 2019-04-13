@@ -1,6 +1,7 @@
 import {Component, Input, OnInit } from '@angular/core';
 import {ElectromagnetService} from '../../../services/publishers/electromagnet.service';
 import {TroutGroutService} from '../../../services/publishers/trout-grout.service';
+import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-tools',
@@ -14,6 +15,15 @@ export class ToolsComponent implements OnInit {
     troutGrout = false;
 
     constructor(public electromagnetService: ElectromagnetService, private troutGroutService: TroutGroutService) {
+    }
+
+    keyPress(event) {
+        if (event.key == 'z') {
+            this.electromagnetButtonSwitch();
+        } else if (event.key == 'x') {
+            this.troutGroutSwitch();
+        } else {
+        }
     }
 
     electromagnetButtonSwitch() {
@@ -35,6 +45,8 @@ export class ToolsComponent implements OnInit {
         this.troutGroutService.getData().subscribe((msg) => {
             this.troutGrout = msg.data;
         });
+        // Creates and subscribes too an observable that listens for key presses. Callback function runs the keypress function
+        fromEvent(document, 'keyup').pipe().subscribe(character => this.keyPress(character));
     }
 
 }
