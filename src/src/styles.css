@@ -24,6 +24,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     text-align: center;
 }
 
+.dashboard-card-square {
+    width: 872px;
+    height: 668px;
+    margin: 8px;
+    text-align: center;
+}
+
 .dashboard-card-long {
     width: 420px;
     height: 650px;
