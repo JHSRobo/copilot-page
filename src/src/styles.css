@@ -31,6 +31,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     text-align: center;
 }
 
+.dashboard-card-wide {
+    width: 872px;
+    height: 300px;
+    margin: 8px;
+    text-align: center;
+}
+
 .dashboard-card-long {
     width: 420px;
     height: 650px;
@@ -98,6 +105,15 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .error {
     color: #f44336 !important;
 }
+
+.red {
+    background-color: #af3735 !important;
+}
+
+.green {
+    background-color: #4CAF50 !important;
+}
+
 
 @charset "UTF-8";
 
