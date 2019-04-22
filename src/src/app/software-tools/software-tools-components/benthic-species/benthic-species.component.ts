@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BenthicSpeciesComponent implements OnInit {
   name = 'Benthic Species';
+
+
   constructor() { }
 
   ngOnInit() {
