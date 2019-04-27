@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './routing/app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RosService} from './services/subscribers/ros.service';
+import {SoftwareToolsModule} from './software-tools/software-tools.module';
 
 
 
@@ -34,6 +35,7 @@ import {RosService} from './services/subscribers/ros.service';
     MaterialModule,
     CopilotModule,
     DrqModule,
+    SoftwareToolsModule,
     SensortelemetryModule,
     AppRoutingModule,
     SharedModule

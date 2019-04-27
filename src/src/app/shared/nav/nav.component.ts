@@ -35,7 +35,8 @@ export class NavComponent implements OnInit {
         {
             src: '../../../assets/Settings(Unselected).svg',
             clickedsrc: '../../../assets/Settings(Selected).svg',
-            selected: false
+            selected: false,
+            link: '/software-tools'
         }
     ];
 

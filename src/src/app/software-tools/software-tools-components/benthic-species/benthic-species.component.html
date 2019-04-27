@@ -1,0 +1,48 @@
+<mat-card class="dashboard-card-wide">
+  <app-card-header [card-name]="name"></app-card-header>
+  <mat-card-content class="p-2">
+    <mat-grid-list cols="6" rowHeight="250px" class="p-4">
+
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <button mat-raised-button class="red p-5">
+          <h1>Start Benthic</h1>
+        </button>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div>
+          <img src="../../../../assets/Square.svg" alt="" class="mb-3" style="display: block;">
+          <h2>Test</h2>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div>
+          <img src="../../../../assets/Rectangle.svg" alt="">
+          <h2>Test</h2>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div>
+          <img src="../../../../assets/Circle.svg" alt="">
+          <h2>Test</h2>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div>
+          <img src="../../../../assets/Triangle.svg" alt="">
+          <h2
+            style="
+            position: absolute;
+            bottom: 36px;
+            right: 50px;"
+          >
+            Test
+          </h2>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
