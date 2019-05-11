@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {TemperatureService} from '../../../services/subscribers/sensors/temperature.service';
 import {HumidityService} from '../../../services/subscribers/sensors/humidity.service';
 import {PressureService} from '../../../services/subscribers/sensors/pressure.service';
 import {RelativeHumidityModel} from '../../../services/data-models/sensor_data/relative-humidity.model';
@@ -7,6 +6,7 @@ import {FluidPressureModel} from '../../../services/data-models/sensor_data/flui
 import {TemperatureModel} from '../../../services/data-models/sensor_data/temperature.model';
 import {Drq1Service} from '../../../services/subscribers/drq-1.service';
 import {DrqModel} from '../../../services/data-models/drq.model';
+import { Bmp280Service} from '../../../services/subscribers/sensors/bmp280.service';
 
 @Component({
     selector: 'app-telemetrydata',
@@ -29,7 +29,7 @@ export class TelemetrydataComponent implements OnInit {
 
     constructor(
         private humidityService: HumidityService,
-        private temperatureService: TemperatureService,
+        private bmp280Service: Bmp280Service,
         private pressureService: PressureService,
         private drqService: Drq1Service
     ) {
@@ -45,8 +45,8 @@ export class TelemetrydataComponent implements OnInit {
             }
         });
         // Initialize Temperature Service
-        this.temperatureService.initialize();
-        this.temperatureService.getData().subscribe((msg: TemperatureModel) => {
+        this.bmp280Service.initialize();
+        this.bmp280Service.getData().subscribe((msg: TemperatureModel) => {
             try {
                 this.rovTemperature = this.round(msg.temperature, 1);
             } catch (error) {

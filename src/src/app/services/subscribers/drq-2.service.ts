@@ -22,7 +22,7 @@ export class Drq2Service {
     // @ts-ignore
     const drq2Listener = new ROSLIB.Topic({
       ros: this.ros,
-      name: '/rov/drq_2',
+      name: '/rov/drq1250_2/status',
       messageType: 'drq1250/DRQ1250'
     });
 
