@@ -42,7 +42,6 @@ export class SensorProbesComponent implements OnInit {
       try {
         console.log(msg);
         this.rovTemperature = this.round(msg.tempC, 1);
-        console.log(this.rovTemperature);
       } catch (error) {
       }
     });

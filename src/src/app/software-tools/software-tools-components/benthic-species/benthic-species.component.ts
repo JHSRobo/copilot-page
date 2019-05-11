@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ShapeDetectService} from '../../../services/subscribers/shape-detect.service';
-import {ShapeDetectModel} from '../../../services/data-models/shape-detect.model';
+import {ServicesService} from '../../../services/services.service';
 
 @Component({
   selector: 'app-benthic-species',
@@ -11,30 +11,26 @@ export class BenthicSpeciesComponent implements OnInit {
   name = 'Benthic Species';
   circles = 0;
   triangles = 0;
-  square = 0;
-  rectangle = 0;
+  squares = 0;
+  rectangles = 0;
+  result;
 
-  mode1Benthic() {
-
-  }
-
-  mode2Benthic() {
-
+  async callAndReturn(mode) {
+    this.result = await this.serviceService.callService(mode);
+    if (this.circles) {
+      this.circles = this.result.circles;
+      this.triangles = this.result.triangles;
+      this.squares = this.result.square;
+      this.rectangles = this.result.rectangle;
+    }
+    console.log(this.result);
   }
 
   constructor(
-      private shapeDetection: ShapeDetectService
+      private serviceService: ServicesService
   ) { }
 
   ngOnInit() {
-    this.shapeDetection.initialize();
-    this.shapeDetection.getData().subscribe((msg: ShapeDetectModel) => {
-      try {
-        this.circles = msg.circles;
-        this.triangles = msg.triangles;
-        this.square = msg.square;
-        this.rectangle = msg.rectangle;
-      } catch (error) { }
-    });
+    this.serviceService.initialize();
   }
 }

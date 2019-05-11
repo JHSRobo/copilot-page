@@ -4,12 +4,12 @@
     <mat-grid-list cols="6" rowHeight="250px" class="p-4">
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <button mat-raised-button class="red p-5" (click)="mode1Benthic()">
+        <button mat-raised-button class="red p-5" (click)="callAndReturn(1)">
           <h1>Mode 1</h1>
         </button>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <button mat-raised-button class ="red p-5" (click)="mode2Benthic()">
+        <button mat-raised-button class ="red p-5" (click)="callAndReturn(2)">
           <h1>Mode 2</h1>
         </button>
       </mat-grid-tile>
@@ -17,14 +17,14 @@
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div>
           <img src="../../../../assets/Square.svg" alt="" class="mb-3" style="display: block;">
-          <h2>{{ square }}</h2>
+          <h2>{{ squares }}</h2>
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <div>
           <img src="../../../../assets/Rectangle.svg" alt="">
-          <h2>{{ rectangle}}</h2>
+          <h2>{{ rectangles }}</h2>
         </div>
       </mat-grid-tile>
 
