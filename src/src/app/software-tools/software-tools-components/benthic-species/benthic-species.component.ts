@@ -14,7 +14,11 @@ export class BenthicSpeciesComponent implements OnInit {
   square = 0;
   rectangle = 0;
 
-  benthicCall() {
+  mode1Benthic() {
+
+  }
+
+  mode2Benthic() {
 
   }
 

@@ -3,9 +3,14 @@
   <mat-card-content class="p-2">
     <mat-grid-list cols="6" rowHeight="250px" class="p-4">
 
-      <mat-grid-tile [colspan]="2" [rowspan]="1">
-        <button mat-raised-button class="red p-5" (click)="benthicCall()">
-          <h1>Start Benthic</h1>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <button mat-raised-button class="red p-5" (click)="mode1Benthic()">
+          <h1>Mode 1</h1>
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <button mat-raised-button class ="red p-5" (click)="mode2Benthic()">
+          <h1>Mode 2</h1>
         </button>
       </mat-grid-tile>
 
