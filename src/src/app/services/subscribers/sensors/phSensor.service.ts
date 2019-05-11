@@ -21,7 +21,7 @@ export class phSensorService {
     const phSensorListener = new ROSLIB.Topic({
       ros: this.ros,
       name: '/rov/sen10972',
-      messageType: 'std_msgs/Float64.msg'
+      messageType: 'std_msgs/Float64'
     });
 
     // Subscribe to bmpListener

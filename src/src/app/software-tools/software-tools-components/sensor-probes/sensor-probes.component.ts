@@ -4,7 +4,6 @@ import { GenericModel } from "../../../services/data-models/generic.model";
 import { Ms5837Service } from "../../../services/subscribers/sensors/ms5837.service";
 import { Ms5837Data } from "../../../services/data-models/ms5837.model";
 import {RelativeHumidityModel} from "../../../services/data-models/sensor_data/relative-humidity.model";
-import {TemperatureModel} from "../../../services/data-models/sensor_data/temperature.model";
 
 @Component({
   selector: 'app-sensor-probes',
@@ -31,17 +30,19 @@ export class SensorProbesComponent implements OnInit {
 
   ngOnInit() {
     this.phService.initialize();
-    this.phService.getData().subscribe((msg: RelativeHumidityModel) => {
+    this.phService.getData().subscribe((msg: GenericModel) => {
       try {
-        this.rovPh = this.round(msg.relative_humidity, 1);
+        this.rovPh = this.round(msg.data, 1);
       } catch (error) {
       }
     });
     // Initialize Temperature Service
     this.tempService.initialize();
-    this.tempService.getData().subscribe((msg: TemperatureModel) => {
+    this.tempService.getData().subscribe((msg: Ms5837Data) => {
       try {
-        this.rovTemperature = this.round(msg.temperature, 1);
+        console.log(msg);
+        this.rovTemperature = this.round(msg.tempC, 1);
+        console.log(this.rovTemperature);
       } catch (error) {
       }
     });

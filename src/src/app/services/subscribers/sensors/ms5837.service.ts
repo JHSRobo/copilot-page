@@ -33,7 +33,7 @@ export class Ms5837Service {
   // Define data getter
   getData(): Observable<any> {
     if (this.ms5837 !== undefined) {
-        return this.ms5837.asObservable();
+      return this.ms5837.asObservable();
     }
   }
 }

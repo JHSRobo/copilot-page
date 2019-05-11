@@ -9,10 +9,14 @@ import {ShapeDetectModel} from '../../../services/data-models/shape-detect.model
 })
 export class BenthicSpeciesComponent implements OnInit {
   name = 'Benthic Species';
-  circles: number;
-  triangles: number;
-  square: number;
-  rectangle: number;
+  circles = 0;
+  triangles = 0;
+  square = 0;
+  rectangle = 0;
+
+  benthicCall() {
+
+  }
 
   constructor(
       private shapeDetection: ShapeDetectService
