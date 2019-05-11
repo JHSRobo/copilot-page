@@ -2,7 +2,7 @@
   <app-card-header [card-name]="name"></app-card-header>
   <mat-grid-list cols="7" rowHeight="250px" class="p-4">
     <mat-grid-tile [colspan]="3" [rowspan]="1">
-      <h1 style="font-size: 120px">23°C</h1>
+      <h1 style="font-size: 120px"><app-error-text [name]="rovTemperature" [unit]="'C'"></app-error-text></h1>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <svg style="stroke: white" stroke-width="6" width="50" height="200" class="mx-auto mb-2">
@@ -10,7 +10,7 @@
       </svg>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3" [rowspan]="1">
-      <h1 style="font-size: 120px">7 pH</h1>
+      <h1 style="font-size: 120px"><app-error-text [name]="rovPh" [unit]="'ph'"></app-error-text></h1>
     </mat-grid-tile>
   </mat-grid-list>
 </mat-card>
