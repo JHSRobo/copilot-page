@@ -6,7 +6,7 @@
       }
 
       .cls-1 {
-        stroke: #43455c;
+        stroke: red;
         stroke-width: 10px;
       }
 

@@ -10,7 +10,7 @@
       }
 
       .cls-3 {
-        fill: #43455c;
+        fill: red;
       }
     </style>
   </defs>
