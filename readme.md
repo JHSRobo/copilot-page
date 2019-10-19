@@ -20,8 +20,6 @@ Development
 
 This package includes the copilot webpage. The webpage is an angular page, more information about the page itself is in readme in the `src` file.
 
-test
-
 ## Goal and User Experience
 
 Allow for an easy to use interface for controlling ROV Settings, functions, and viewing important telemetry information such as depth, temperature, pressure, etc.
