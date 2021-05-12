@@ -26,7 +26,7 @@
     "@swimlane/ngx-charts": "^9.0.0",
     "angular2-chartjs": "^0.5.1",
     "angular2-knob": "^1.1.15",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.4",
     "eventemitter2": "^5.0.1",
     "hammerjs": "^2.0.8",
